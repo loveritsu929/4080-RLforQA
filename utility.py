@@ -1,13 +1,14 @@
 import datetime, json, os, pickle, spacy
+from tqdm import tqdm
 
 glove_size = 300
-train_dataset_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "data/train_dataset")
-develop_dataset_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "data/develop_dataset")
-glove_archive_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "data/glove_archive")
-word_vocabulary_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "data/word_vocabulary")
-word_embedding_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "data/word_embedding")
-train_composite_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "data/train_composite")
-develop_composite_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "data/develop_composite")
+train_dataset_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "/media/data1/hotpot/train_dataset")
+develop_dataset_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "/media/data1/hotpot/develop_dataset")
+glove_archive_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "/media/data1/hotpot/glove_archive")
+word_vocabulary_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "/media/data1/hotpot/word_vocabulary")
+word_embedding_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "/media/data1/hotpot/word_embedding")
+train_composite_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "/media/data1/hotpot/train_composite")
+develop_composite_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "/media/data1/hotpot/develop_composite")
 spacy_nlp = spacy.load(name="en_core_web_lg", disable=["tagger", "parser", "ner"])
 
 def load_file(file_path, file_type):
@@ -94,6 +95,8 @@ def convert_dataset(dataset_buffer, word_vocabulary, require_answer):
         ]
 
         composite_record = {
+        	# TODO: question "_id"
+        	"id": record["id"],
             "fact_handles": fact_handles,
             "sentence_source_array": sentence_source_array,
             "sentence_length_array": sentence_length_array,
