@@ -96,7 +96,7 @@ def convert_dataset(dataset_buffer, word_vocabulary, require_answer):
 
         composite_record = {
         	# TODO: question "_id"
-        	"id": record["id"],
+        	"id": record["_id"],
             "fact_handles": fact_handles,
             "sentence_source_array": sentence_source_array,
             "sentence_length_array": sentence_length_array,
