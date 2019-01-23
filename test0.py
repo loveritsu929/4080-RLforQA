@@ -23,10 +23,10 @@ hpqa = load_file('/media/data1/hotpot/hotpot_train_v1.1.json', 'jsn')
 '''
 with open('./data/word_embedding', mode="rb") as file_stream:
     fp = pickle.load(file_stream)
-'''
+
 eg_num = 2
 with open('./trainExamples/trainEg' + str(eg_num) +'.json', mode = 'w') as js:
     json.dump(hpqa[eg_num], js, indent = 4)
-
+'''
 
 
