@@ -1,5 +1,5 @@
 !! run in the cahce folder
-bert-serving-start -model_dir ../uncased_L-24_H-1024_A-16/ -max_batch_size 16 -max_seq_len 50 -num_worker 1
+bert-serving-start -model_dir ../uncased_L-24_H-1024_A-16/ -max_batch_size 16 -num_worker 1
 
 BertClient(check_length=False)
 

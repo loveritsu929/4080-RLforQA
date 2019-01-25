@@ -11,9 +11,9 @@ class SimpleNet(nn.Module):
         )
         self.fc2 = nn.Linear(2048,2)
         
-        self.softmax = nn.Softmax()
+        self.softmax = nn.Softmax(dim=1)
         
-    def foward(self, x):
+    def forward(self, x):
         x = self.fc1(x)
         x = self.fc2(x)
         out = self.softmax(x)
