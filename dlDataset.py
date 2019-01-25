@@ -41,14 +41,16 @@ def dump_data(data_buffer, file_path, file_type):
         pass
     
 
-class dlDataset(data.Dataset):
+class paraDataset(data.Dataset):
     ''' a dataset for hotpotQA
         pure DL approach
+        
+        load the entire dataset file into memory
     '''
     
     def __init__(self, mode='train'):
         self.mode = mode
-        self.bertClient = BertClient() # localhost
+        self.bertClient = BertClient(check_length=False) # localhost
         self.fp = load_file(train_file, 'jsn') if mode == 'train' else load_file(dev_file, 'jsn') # a list of qusetions
         
     def __len__(self):
@@ -84,8 +86,6 @@ class dlDataset(data.Dataset):
                 sent_label = 1 if [title, sent_index] in supports else 0
                 
                 label_tensor = torch.as_tensor(sent_label)
-                
-                #sents.append(sent_tensor.unsqueeze_(0))
                 labels.append(label_tensor.unsqueeze_(0))
                 
         sent_mat = torch.cat(sents,0)
@@ -98,8 +98,21 @@ class dlDataset(data.Dataset):
 
 # test case            
 if __name__ == '__main__':
-    ds = dlDataset(mode='train')
+    ds = paraDataset(mode='train')
+    dl = data.DataLoader(ds, batch_size = 2, shuffle = True, num_workers = 0)
+    # num_workers != 0 ==> Error no responding ???
+    '''
+    for i, (q, sample, label) in enumerate(dl,0):
+        if i > 2:
+            break
+        else:
+            print(sample.size())
     #q, s, l = ds.__getitem__(0)
     
+    RuntimeError: invalid argument 0: Sizes of tensors must match except in dimension 0.
+    Got 49 and 34 in dimension 1
+    
+     sent_mat.view(1,-1)
+    '''
         
         
