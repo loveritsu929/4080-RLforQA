@@ -16,7 +16,7 @@ from bert_serving.client import BertClient
 device = torch.device('cuda:0')
 
 batchSize = 256
-lnR = 1e-2
+lnR = 1e-3
 maxEpoches = 20
 
 modelSaveDir = './exps'
@@ -26,7 +26,7 @@ trainLoader = data.DataLoader(trainDataset, batch_size = batchSize, shuffle = Tr
 
 model = NNetworks.SimpleNet()
 model = model.to(device) # or model = model.to(device)
-lossFunction = nn.MSELoss()
+lossFunction = nn.CrossEntropyLoss()
 optimizer = optim.Adam(model.parameters(), lr = lnR, amsgrad = True)
 
 bert = BertClient(check_length=False)

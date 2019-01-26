@@ -69,7 +69,7 @@ class sentDataset(data.Dataset):
                 ds_len += len(paragraph)
                 for sent_index, sent in enumerate(paragraph):
                     sent_sample = title + ": " + sent
-                    label = [0,1] if [title, sent_index] in supports else [1,0]
+                    label = 1 if [title, sent_index] in supports else 0
                     ds.append((question, sent_sample, label))
         
         assert ds_len == len(ds)
