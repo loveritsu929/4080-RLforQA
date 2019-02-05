@@ -15,14 +15,17 @@ from bert_serving.client import BertClient
 #===================== Hyper Parameters
 device = torch.device('cuda:0')
 
-batchSize = 256
+batchSize = 1024
 lnR = 1e-2
 maxEpoches = 20
 
 modelSaveDir = './exps'
 
-trainDataset = dlDataset.sentDataset(mode='train')
+trainDataset = dlDataset.sentDataset(mode='test') # !!!train on the small test dataset; 
 trainLoader = data.DataLoader(trainDataset, batch_size = batchSize, shuffle = True, num_workers = 0)
+
+rescaling = (len(trainDataset)-trainDataset.num_positive)/trainDataset.num_positive # -m / m+
+rescaling = torch.as_tensor([0,rescaling]).to(device)
 
 model = NNetworks.SimpleNet()
 model = model.to(device) # or model = model.to(device)
@@ -39,6 +42,8 @@ for ep in range(maxEpoches):
     #t_0 = time.time()
     running_loss = 0.0
     running_corrects = 0
+    num_true = 0
+    true_positive = 0
     for i, (q, sent, label) in enumerate(trainLoader, 0):
         q_t = torch.as_tensor(bert.encode(list(q)))
         sent_t = torch.as_tensor(bert.encode(list(sent)))
@@ -56,13 +61,16 @@ for ep in range(maxEpoches):
         optimizer.step()
          
         # statistics
-        _, preds = torch.max(out,1)  # The second return value is the index location of each maximum value found (argmax).
+        # rescaling
+        _, preds = torch.max(torch.mul(out,rescaling),1)  # The second return value is the index location of each maximum value found (argmax).
         running_loss += loss.item() * sample.size(0)
         running_corrects += torch.sum(preds == label.data)
+        true_positive += torch.sum(preds * label.data)
+        num_true += torch.sum(label.data)
         
         # batchSize samples in each iteration 
         if i % 200 == 0:
-            print('Epoch {} Iteration {}: running_corrects: {} running loss = {}'.format(ep,i,running_corrects,running_loss))
+            print('Epoch {} Iteration {}: correct_acc: {} true_pos_acc = {}'.format(ep,i,running_corrects.double()/sample.size(0),true_positive.double() / num_true.double()))
              
     epoch_loss = running_loss / len(trainDataset)
     epoch_acc = running_corrects.double() / len(trainDataset)

@@ -45,12 +45,13 @@ class sentDataset(data.Dataset):
         self.mode = mode
         #self.bertClient = BertClient(check_length=False) # localhost, max_seq_lehgth = inf
         self.fp = load_file(train_file, 'jsn') if mode == 'train' else load_file(dev_file, 'jsn') # a list of qusetions
-        self.dataset_len, self.dataset = self.make_dataset()
+        self.num_positive, self.dataset_len, self.dataset = self.make_dataset()
         
     def make_dataset(self):
         # need: question, para_title+sentence, label
         # tensor n * 2048 + label
         ds_len = 0
+        num_positive= 0
         ds = []
         for qdict in self.fp:
             supports = qdict['supporting_facts'] # a list of lists of facts with form [title, sent_id]
@@ -70,12 +71,13 @@ class sentDataset(data.Dataset):
                 for sent_index, sent in enumerate(paragraph):
                     sent_sample = title + ": " + sent
                     label = 1 if [title, sent_index] in supports else 0
+                    num_positive += 1 if label == 1 else 0
                     ds.append((question, sent_sample, label))
         
         assert ds_len == len(ds)
         
             
-        return ds_len, ds
+        return num_positive, ds_len, ds
     
     def __len__(self):
         return self.dataset_len
@@ -145,9 +147,14 @@ class paraDataset(data.Dataset):
 
 # test case            
 if __name__ == '__main__':
-    ds = sentDataset(mode='train')
-    dl = data.DataLoader(ds, batch_size = 1, shuffle = False, num_workers = 0)
+    ds = sentDataset(mode='test')
+    #dl = data.DataLoader(ds, batch_size = 1, shuffle = False, num_workers = 0)
     # num_workers != 0 ==> Error no responding ???
+    
+    # dev_ds: len==314793, num_positive = 10298, pos% = 3.27 %
+    # train_ds: len==3703344, num_positive = 215662, pos% = 5.82 %
+    # test true_pos acc on dev_dataset: acc == 8810/10298 == 85.6%
+
     '''
     for i, (q, sample, label) in enumerate(dl,0):
         if i > 2:
