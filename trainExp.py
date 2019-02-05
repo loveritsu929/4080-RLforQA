@@ -69,7 +69,7 @@ for ep in range(maxEpoches):
         num_true += torch.sum(label.data)
         
         # batchSize samples in each iteration 
-        if i % 200 == 0:
+        if i % 10 == 0:
             print('Epoch {} Iteration {}: correct_acc: {} true_pos_acc = {}'.format(ep,i,running_corrects.double()/sample.size(0),true_positive.double() / num_true.double()))
              
     epoch_loss = running_loss / len(trainDataset)
