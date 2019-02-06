@@ -25,7 +25,7 @@ trainDataset = dlDataset.sentDataset(mode='test') # !!!train on the small test d
 trainLoader = data.DataLoader(trainDataset, batch_size = batchSize, shuffle = True, num_workers = 0)
 
 rescaling = (len(trainDataset)-trainDataset.num_positive)/trainDataset.num_positive # -m / m+
-rescaling = torch.as_tensor([0,rescaling]).to(device)
+rescaling = torch.as_tensor([1,rescaling]).to(device)
 
 model = NNetworks.SimpleNet()
 model = model.to(device) # or model = model.to(device)
@@ -70,7 +70,7 @@ for ep in range(maxEpoches):
         
         # batchSize samples in each iteration 
         if i % 10 == 0:
-            print('Epoch {} Iteration {}: correct_acc: {} true_pos_acc = {}'.format(ep,i,running_corrects.double()/sample.size(0),true_positive.double() / num_true.double()))
+            print('Epoch {} Iteration {}: correct_acc: {} true_pos_acc = {}'.format(ep,i,running_corrects.double()/(sample.size(0)*(i+1)),true_positive.double() / num_true.double()))
              
     epoch_loss = running_loss / len(trainDataset)
     epoch_acc = running_corrects.double() / len(trainDataset)

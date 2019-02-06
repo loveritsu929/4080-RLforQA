@@ -1,5 +1,37 @@
 !! run in the cahce folder
-bert-serving-start -model_dir ../uncased_L-24_H-1024_A-16/ -max_batch_size 16 -num_worker 1
+bert-serving-start -model_dir ../uncased_L-24_H-1024_A-16/ -max_batch_size 1024 -num_worker 1
 
 BertClient(check_length=False)
 
+E:VENTILATOR:[__i:_ru:138]:received a wrongly-formatted request (expected 4 frames, got 1)
+E:VENTILATOR:[__i:_ru:139]:field 0: b'ing: gzip, deflate\r\nAccept: */*\r\nUser-Agent: python-requests/2.12.4\r\nSOAPAction: urn:dslforum-org:service:Time'
+Traceback (most recent call last):
+  File "/home/cxing95/anaconda3/lib/python3.6/site-packages/bert_serving/server/__init__.py", line 136, in _run
+    client, msg, req_id, msg_len = request
+ValueError: not enough values to unpack (expected 4, got 1)
+E:VENTILATOR:[__i:_ru:138]:received a wrongly-formatted request (expected 4 frames, got 2)
+E:VENTILATOR:[__i:_ru:139]:field 0: b'#SetNTPServers\r\nContent-Length: 538\r\n\r\n\r\n<?xml version="1'
+field 1: b'"\r\n<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://'
+Traceback (most recent call last):
+  File "/home/cxing95/anaconda3/lib/python3.6/site-packages/bert_serving/server/__init__.py", line 136, in _run
+    client, msg, req_id, msg_len = request
+ValueError: not enough values to unpack (expected 4, got 2)
+Exception in thread Thread-1:
+Traceback (most recent call last):
+  File "/home/cxing95/anaconda3/lib/python3.6/threading.py", line 916, in _bootstrap_inner
+    self.run()
+  File "/home/cxing95/anaconda3/lib/python3.6/site-packages/bert_serving/server/__init__.py", line 89, in run
+    self._run()
+  File "/home/cxing95/anaconda3/lib/python3.6/site-packages/zmq/decorators.py", line 75, in wrapper
+    return func(*args, **kwargs)
+  File "/home/cxing95/anaconda3/lib/python3.6/site-packages/zmq/decorators.py", line 75, in wrapper
+    return func(*args, **kwargs)
+  File "/home/cxing95/anaconda3/lib/python3.6/site-packages/zmq/decorators.py", line 75, in wrapper
+    return func(*args, **kwargs)
+  File "/home/cxing95/anaconda3/lib/python3.6/site-packages/bert_serving/server/zmq_decor.py", line 27, in wrapper
+    return func(*args, **kwargs)
+  File "/home/cxing95/anaconda3/lib/python3.6/site-packages/bert_serving/server/__init__.py", line 141, in _run
+    server_status.update(request)
+  File "/home/cxing95/anaconda3/lib/python3.6/site-packages/bert_serving/server/__init__.py", line 457, in update
+    self._hist_msg_len[int(msg_len)] += 1
+ValueError: invalid literal for int() with base 10: b'.147/d; sh d`</NewNTPServer1>\r\n   <NewNTPServer2></N'
