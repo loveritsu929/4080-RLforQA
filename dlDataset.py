@@ -89,7 +89,7 @@ class sentDataset(data.Dataset):
     
     
     
-    
+#TODO: sentence padding
 class paraDataset(data.Dataset):
     ''' a dataset for hotpotQA
         pure DL approach
