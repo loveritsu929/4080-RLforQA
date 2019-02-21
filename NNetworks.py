@@ -22,28 +22,48 @@ class SimpleNet(nn.Module):
         return out
     
 class MyLSTM(nn.Module):
-    def __init__(self, input_size = 1024, hidden_size = 1024, num_layers = 1):
+    def __init__(self, mode = 'train', input_size = 1024, hidden_size = 1024, num_layers = 1):
         super(MyLSTM, self).__init__()
-        self.lstm = nn.LSTM(input_size, hidden_size, num_layers, dropout = 0.0, batch_first=False) 
+        self.mode = mode
+        self.lstm = nn.LSTM(input_size, hidden_size, num_layers, dropout = 0.0, batch_first=True) 
         # (seq_len, batch, hidden_size * num_directions)
         
         #initial weights
         #all_weights first dimension == all hidden layers
-        nn.init.kaiming_normal_(self.lstm.all_weights[0][0], nonlinearity='leaky_relu') #weights
-        nn.init.kaiming_normal_(self.lstm.all_weights[0][1], nonlinearity='leaky_relu') #bias
+        nn.init.kaiming_normal_(self.lstm.all_weights[0][0], a = 0.01, nonlinearity='leaky_relu') #weights
+        nn.init.kaiming_normal_(self.lstm.all_weights[0][1], a = 0.01, nonlinearity='leaky_relu') #bias
         
         self.fc = nn.Linear(hidden_size, 2)
-        nn.init.kaiming_normal_(self.fc.weight, nonlinearity='leaky_relu')
+        #self.fc = nn.Linear(hidden_size, 1)  #for My loss 
+        #nn.init.kaiming_normal_(self.fc.weight, nonlinearity='relu')
         
         self.leaky_relu = nn.LeakyReLU()
+        self.sigmoid = nn.Sigmoid()
         self.softmax = nn.Softmax()
         
+    def set_mode(self, mode):
+        self.mode = mode    
+        
     def forward(self, x):
-
-        # Forward propagate RNN
-        out, _ = self.lstm(x)
-        out = self.leaky_relu(x)
-        # Decode hidden state of last time step
-        out = self.fc(out[-1, :, :]) #  (seq_len, batch, hidden_size * num_directions)
-        out = self.softmax(out)
-        return out
+        if self.mode == 'train':
+            # Forward propagate RNN
+            out, _ = self.lstm(x)
+            out = self.leaky_relu(x)
+            # Decode hidden state of last time step
+            out = self.fc(out[:, -1, :]) #  False: (seq_len, batch, hidden_size * num_directions)
+            out = self.sigmoid(out)
+            return out
+        
+        if self.mode == 'test':
+            # Forward propagate RNN
+            out, _ = self.lstm(x)
+            out = self.leaky_relu(x)
+            # Decode hidden state of last time step
+            out = self.fc(out[:, -1, :]) #   batch,seq,feature         False: (seq_len, batch, hidden_size * num_directions)
+            #out = self.softmax(out)
+            return out
+    
+if __name__ == '__main__':
+    net = MyLSTM()
+    input_tensor = torch.rand(3,20,1024)
+    out = net(input_tensor)

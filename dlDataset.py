@@ -100,7 +100,7 @@ class SentDataset(data.Dataset):
 class ParaDataset(data.Dataset):
     ''' a dataset for hotpotQA
         pure DL approach
-        
+        899667 paras
         load the entire dataset file into memory
     '''
     
@@ -108,13 +108,23 @@ class ParaDataset(data.Dataset):
         self.mode = mode
         #self.bertClient = BertClient(check_length=False) # localhost, max_seq_lehgth = inf
         self.fp = load_file(train_file, 'jsn') if mode == 'train' else load_file(dev_file, 'jsn') # a list of qusetions
-        self.dataset_len, self.dataset = self.make_dataset()
+        self.dataset_len, self.dataset, self.label_array = self.make_dataset()
         
+    def para_padding(self, para_list, maxLen):
+        para = para_list
+        paraLen = len(para_list)
+        diff = maxLen - paraLen
+        times = int(maxLen/paraLen)
+        if diff > 0:
+            para = (para * (times+1))[:maxLen]
+        return para
+    
     def make_dataset(self):
         # need: question, para_title+sentence, label
         # tensor n * 2048 + label
         ds_len = 0
         ds = []
+        label_array = []
         for qdict in self.fp:
             supports = qdict['supporting_facts'] # a list of 2-element lists of facts with form [title, sent_id]
             fact_titles = [fact[0] for fact in supports] # only the titles of supporting paragraphs
@@ -128,22 +138,30 @@ class ParaDataset(data.Dataset):
             if len(context) == 0:
                 context = [['some random title', ['some random stuff']]]
             
+            context = [[title, list(filter(lambda x: x != '' and x != ' ', para))] for title, para in context] # remove empty sentence in para
+            
+            maxParaLen = max([len(para) for title, para in context])
             for title, paragraph in context:
                 ds_len += 1
                 label = 1 if title in fact_titles else 0
+                label_array.append(label)
                 
-                ds.append((question, [title] + paragraph, label))
+                #paragraph = list(filter(lambda x: x != '' and x != ' ', paragraph)) # remove empty sentence in para
+                paragraph = self.para_padding(paragraph, maxParaLen)
+                paragraph = [title] + paragraph
+                ds.append((question, paragraph, label))
         
-        assert ds_len == len(ds)
+        assert ds_len == len(ds) == len(label_array)
         
             
-        return ds_len, ds
+        return ds_len, ds, label_array
     
     def __len__(self):
         return self.dataset_len
     
     def __getitem__(self, index):
         return self.dataset[index]
+    
 #    def __getitem__(self, index):
 #        '''
 #           return a tensor of all sentences with shape num_sent * bert_embedding_size, a question tensor,
@@ -185,7 +203,8 @@ class ParaDataset(data.Dataset):
 
 # test case            
 if __name__ == '__main__':
-    ds = ParaDataset(mode='train')
+    ds1 = ParaDataset(mode='train')
+    ds2 = ParaDataset(mode='test')
     '''
     ds[0] = 
     ("Which magazine was started first Arthur's Magazine or First for Women?",
@@ -199,7 +218,7 @@ if __name__ == '__main__':
   ' Abraham Thomas is the CEO of the company.'],
  0)
     '''
-    dl = data.DataLoader(ds, batch_size = 4, shuffle = False, num_workers = 0)
+    #dl = data.DataLoader(ds, batch_size = 2, shuffle = False, num_workers = 0)
  
     '''
     for i, (q, sample, label) in enumerate(dl,0):

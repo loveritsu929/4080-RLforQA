@@ -1,0 +1,102 @@
+{
+    "_id": "5abe18e055429976d4830a74",
+    "answer": "black",
+    "question": "Is the university that owns WCSU-FM historically black or white?",
+    "supporting_facts": [
+        [
+            "WCSU-FM",
+            1
+        ],
+        [
+            "Central State University",
+            0
+        ]
+    ],
+    "context": [
+        [
+            "University of Maryland Eastern Shore",
+            [
+                "University of Maryland Eastern Shore (UMES), located on 745 acres (3.01\u00a0km) in Princess Anne, Maryland, United States, is part of the University System of Maryland.",
+                " UMES is a historically black university, as well as an 1890 Historically Black Land-Grant University.",
+                " The University is a member-school of the Thurgood Marshall College Fund."
+            ]
+        ],
+        [
+            "The Hilltop (newspaper)",
+            [
+                "The Hilltop is the student newspaper of Howard University, a historically Black college, located in Washington, D.C. Co-founded in 1924 by Harlem Renaissance writer Zora Neale Hurston and Louis Eugene King, \"The Hilltop\" is the first and only daily newspaper at a historically Black college or university (HBCU) in the United States.",
+                " "
+            ]
+        ],
+        [
+            "Spelman College",
+            [
+                "Spelman College is a four-year liberal arts women's college located in Atlanta, Georgia, United States.",
+                " The college is part of the Atlanta University Center academic consortium in Atlanta.",
+                " Founded in 1881 as the Atlanta Baptist Female Seminary, Spelman was the fourth historically black female institution of higher education to receive its collegiate charter in 1924.",
+                " (Two schools were strictly seminaries and one was originally coeducational.)",
+                " Therefore, Spelman College holds the distinction of being America's first, and thereby oldest, private, liberal arts historically black colleges for women."
+            ]
+        ],
+        [
+            "Historically black law schools",
+            [
+                "Historically black law schools (HBLS\u2019s) are American law schools within a HBCU (Historically Black College and University)."
+            ]
+        ],
+        [
+            "Florida A&amp;M University",
+            [
+                "Florida Agricultural and Mechanical University, commonly known as FAMU, is a public, historically black university in Tallahassee, Florida, United States.",
+                " Florida A&M University was founded on the highest of seven hills in Tallahassee, Florida on October 3, 1887.",
+                " It is one of the largest historically black universities in the United States by enrollment and the only public historically black university in Florida.",
+                " It is a member institution of the State University System of Florida, as well as one of the state's land grant universities, and is accredited to award baccalaureate, master's and doctoral degrees by the Commission on Colleges of the Southern Association of Colleges and Schools.",
+                " The university is a member-school of the Thurgood Marshall College Fund."
+            ]
+        ],
+        [
+            "South Carolina State University",
+            [
+                "South Carolina State University (often referred to as SCSU or SC State) is a four-year historically black university located in Orangeburg, South Carolina, United States.",
+                " It is the only state funded, historically black land-grant institution in South Carolina, is a member-school of the Thurgood Marshall College Fund and is accredited by the Southern Association of Colleges and Schools (SACS)."
+            ]
+        ],
+        [
+            "LeMoyne\u2013Owen College",
+            [
+                "LeMoyne\u2013Owen College(\"LOC\" or simply \"LeMoyne\") is a fully accredited, four-year private historically black college located in Memphis, Tennessee, affiliated with the United Church of Christ.",
+                " It resulted from the 1968 merger of historically black colleges and other schools established by northern Protestant missions during and after the American Civil War."
+            ]
+        ],
+        [
+            "Bennett College",
+            [
+                "Bennett College is a private four-year historically black liberal arts college for women located in Greensboro, North Carolina.",
+                " It was founded in 1873 as a normal school to educate freedmen and train both men and women as teachers.",
+                " Originally coed, in 1926 it became a four-year women's college.",
+                " It is one of two historically black colleges that enroll women only.",
+                " Today it serves roughly 780 undergraduate students."
+            ]
+        ],
+        [
+            "Savannah State University",
+            [
+                "Savannah State University is a four-year, state-supported, historically black university (HBCU) located in Savannah, Georgia, United States.",
+                " It is the oldest public historically black university in the state.",
+                " Savannah State University's mission statement is \"to graduate students who are prepared to perform at higher levels of economic productivity, social responsibility, and excellence in their chosen career fields of endeavor in a changing global community.\"",
+                " The University is a member-school of the Thurgood Marshall College Fund."
+            ]
+        ],
+        [
+            "Arkansas Baptist College",
+            [
+                "Arkansas Baptist College (ABC) is a private, historically black liberal arts college located in Little Rock, Arkansas.",
+                " Founded in 1884 as the Minister's Institute, ABC was initially funded by the Colored Baptists of the State of Arkansas.",
+                " It is the only historically black Baptist school west of the Mississippi River.",
+                " The main building on its campus, built in 1893, is one of the oldest surviving academic buildings in the state, and was listed on the National Register of Historic Places in 1976."
+            ]
+        ]
+    ],
+    "type": "bridge",
+    "level": "hard"
+}
