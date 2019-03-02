@@ -21,7 +21,7 @@ from bert_serving.client import BertClient
 device = torch.device('cuda:0')
 
 batchSize = 1024
-lnR = 1e-2
+lnR = 5e-2
 maxEpoches = 20
 
 modelSaveDir = './exps/lstm_para_2'
@@ -44,21 +44,23 @@ optimizer = optim.Adam(model.parameters(), lr = lnR, amsgrad = True)
 bert = BertClient(check_length=False)
 #=====================
 class MyLoss(nn.Module):
-    def __init__(self):
+    def __init__(self, weights):
         super(MyLoss, self).__init__()
+        self.loss_weights = weights
         
     def forward(self, out, label):
         loss = 0
         assert out.size() == label.size()
         out = torch.log(out)
+        out = torch.mul(out, -1)
         for i in range(out.size()[0]):
             if label[i] == 1:
-                loss += torch.mul(out[i],-1) * loss_weights[1]
+                loss += out[i] * self.loss_weights[1]
             elif label[i] == 0:
-                loss += (1 - torch.mul(out[i],-1)) * loss_weights[0]
+                loss += (1 - out[i]) * self.loss_weights[0]
         return loss
     
-lossFunction = nn.BCEWithLogitsLoss(weight = loss_weights) #nn.CrossEntropyLoss(weight = loss_weights)
+lossFunction = nn.CrossEntropyLoss(weight = loss_weights)
 #===================== training
 best_acc = 0.0
 best_model_wts = copy.deepcopy(model.state_dict())
@@ -90,8 +92,8 @@ for ep in range(maxEpoches):
         label = label.to(device)
         
         out = model(sample) #.squeeze() # trainning: fc output  ##1d sigmoid score
-        _, preds = torch.max(out, dim=1)
-        loss = lossFunction(preds, label)
+        #_, preds = torch.max(out, dim=1)
+        loss = lossFunction(out, label)
         
         # update
         optimizer.zero_grad()
