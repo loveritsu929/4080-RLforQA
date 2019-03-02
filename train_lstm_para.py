@@ -90,7 +90,8 @@ for ep in range(maxEpoches):
         label = label.to(device)
         
         out = model(sample) #.squeeze() # trainning: fc output  ##1d sigmoid score
-        loss = lossFunction(out, label)
+        _, preds = torch.max(out, dim=1)
+        loss = lossFunction(preds, label)
         
         # update
         optimizer.zero_grad()
