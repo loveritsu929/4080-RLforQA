@@ -9,7 +9,7 @@ import torch.optim as optim
 import torch.utils.data as data
 import torch.cuda as cuda
 import numpy as np
-import sklearn
+import sys
 
 import NNetworks
 import dlDataset
@@ -24,7 +24,7 @@ threshold = 0.1
 modelSaveDir = './exps/lstm_para_1'
 
 testDataset = dlDataset.ParaDataset(mode='test')
-loss_weights = torch.as_tensor(sklearn.utils.class_weight.compute_class_weight('balanced', [0,1], testDataset.label_array[:10240]))
+#loss_weights = torch.as_tensor(sklearn.utils.class_weight.compute_class_weight('balanced', [0,1], testDataset.label_array[:10240]))
 testLoader = data.DataLoader(testDataset, batch_size = batchSize, shuffle = False, num_workers = 0)
 
 bert = BertClient(check_length=False)
@@ -60,7 +60,12 @@ def test_model(model, current_acc):
         sample = sample.to(device)
         label = label.to(device)
         
-        out = model(sample).squeeze() # testing: fc output, batchSize*1
+        out = model(sample) #.squeeze() # testing: fc output, batchSize*1
+        
+        
+        out = torch.max(out)
+        
+        #TODO
         out = nn.functional.softmax(out)
         maxScore = torch.max(out)
         preds = (out > maxScore - threshold).long()
@@ -86,6 +91,9 @@ def test_model(model, current_acc):
     return acc
 
 if __name__ == '__main__':
+    model_w = './exps/lstm_para_1/exp1_ep4.mdl'
+    print('To test: ', model_w)
     model = NNetworks.MyLSTM()
+    model.load_state_dict(torch.load(model_w))
     model = model.to(device)
-    test_model(model, 0.0)
+    test_model(model, 100)

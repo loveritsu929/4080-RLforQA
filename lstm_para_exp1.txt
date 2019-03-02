@@ -1,0 +1,154 @@
+Script started on Thu 21 Feb 2019 05:28:00 PM EST
+]0;cxing95@speech10: ~/4080/RL-for-QA[01;32mcxing95@speech10[00m:[01;34m~/4080/RL-for-QA[00m$ python train_lstm_para.py
+Ready for trainning
+Epoch 0/20
+====================
+Epoch 0 Iteration 0: loss = 0.6990556716918945
+Epoch 0 Iteration 10: loss = 0.6797488331794739
+Epoch 0 Iteration 20: loss = 0.6700702905654907
+Epoch 0 Iteration 30: loss = 0.652039110660553
+Epoch 0 Iteration 40: loss = 0.6425371170043945
+Epoch 0 Iteration 50: loss = 0.6651937961578369
+Epoch 0 Iteration 60: loss = 0.6473007202148438
+Epoch 0 Iteration 70: loss = 0.6636016964912415
+Epoch 0 Iteration 80: loss = 0.6611485481262207
+Epoch 0 Iteration 90: loss = 0.6645187139511108
+Epoch 0 Iteration 100: loss = 0.6533651947975159
+Epoch 0 Iteration 110: loss = 0.6464508175849915
+Epoch 0 Iteration 120: loss = 0.673233687877655
+Epoch 0 Iteration 130: loss = 0.6501949429512024
+Epoch 0 Iteration 140: loss = 0.6560274958610535
+Epoch 0 Iteration 150: loss = 0.6457987427711487
+Epoch 0 Iteration 160: loss = 0.6474381685256958
+Epoch 0 Iteration 170: loss = 0.6574406623840332
+Epoch 0 Iteration 180: loss = 0.6424860954284668
+Epoch 0 Iteration 190: loss = 0.6466208100318909
+Finish epoch 0 epLoss: 0.6577
+
+Epoch 1/20
+====================
+Epoch 1 Iteration 0: loss = 0.6935006976127625
+Epoch 1 Iteration 10: loss = 0.6440666317939758
+Epoch 1 Iteration 20: loss = 0.6499441266059875
+Epoch 1 Iteration 30: loss = 0.6537503004074097
+Epoch 1 Iteration 40: loss = 0.6544833779335022
+Epoch 1 Iteration 50: loss = 0.6460504531860352
+Epoch 1 Iteration 60: loss = 0.6430680751800537
+Epoch 1 Iteration 70: loss = 0.6623578071594238
+Epoch 1 Iteration 80: loss = 0.6725066304206848
+Epoch 1 Iteration 90: loss = 0.6459435224533081
+Epoch 1 Iteration 100: loss = 0.6585941910743713
+Epoch 1 Iteration 110: loss = 0.6312265396118164
+Epoch 1 Iteration 120: loss = 0.6409695744514465
+Epoch 1 Iteration 130: loss = 0.6540855169296265
+Epoch 1 Iteration 140: loss = 0.6623280048370361
+Epoch 1 Iteration 150: loss = 0.6812996864318848
+Epoch 1 Iteration 160: loss = 0.6468068361282349
+Epoch 1 Iteration 170: loss = 0.6361855864524841
+Epoch 1 Iteration 180: loss = 0.6337783336639404
+Epoch 1 Iteration 190: loss = 0.652340292930603
+Finish epoch 1 epLoss: 0.6488
+
+Epoch 2/20
+====================
+Epoch 2 Iteration 0: loss = 0.6638639569282532
+Epoch 2 Iteration 10: loss = 0.6224225163459778
+Epoch 2 Iteration 20: loss = 0.6396241188049316
+Epoch 2 Iteration 30: loss = 0.6489017605781555
+Epoch 2 Iteration 40: loss = 0.6465537548065186
+Epoch 2 Iteration 50: loss = 0.6459155678749084
+Epoch 2 Iteration 60: loss = 0.6396218538284302
+Epoch 2 Iteration 70: loss = 0.6329026222229004
+Epoch 2 Iteration 80: loss = 0.6609318852424622
+Epoch 2 Iteration 90: loss = 0.6538150906562805
+Epoch 2 Iteration 100: loss = 0.6475508809089661
+Epoch 2 Iteration 110: loss = 0.6477464437484741
+Epoch 2 Iteration 120: loss = 0.6466014981269836
+Epoch 2 Iteration 130: loss = 0.6488578915596008
+Epoch 2 Iteration 140: loss = 0.6546620726585388
+Epoch 2 Iteration 150: loss = 0.6542924046516418
+Epoch 2 Iteration 160: loss = 0.6253751516342163
+Epoch 2 Iteration 170: loss = 0.630653440952301
+Epoch 2 Iteration 180: loss = 0.6587531566619873
+Epoch 2 Iteration 190: loss = 0.6424538493156433
+Finish epoch 2 epLoss: 0.6459
+
+Epoch 3/20
+====================
+Epoch 3 Iteration 0: loss = 0.6521664261817932
+Epoch 3 Iteration 10: loss = 0.6288980841636658
+Epoch 3 Iteration 20: loss = 0.6499097347259521
+Epoch 3 Iteration 30: loss = 0.6294245719909668
+Epoch 3 Iteration 40: loss = 0.6630465984344482
+Epoch 3 Iteration 50: loss = 0.6665416955947876
+Epoch 3 Iteration 60: loss = 0.6569806337356567
+Epoch 3 Iteration 70: loss = 0.6445886492729187
+Epoch 3 Iteration 80: loss = 0.6459511518478394
+Epoch 3 Iteration 90: loss = 0.625507652759552
+Epoch 3 Iteration 100: loss = 0.6360408663749695
+Epoch 3 Iteration 110: loss = 0.6468799710273743
+Epoch 3 Iteration 120: loss = 0.6119170784950256
+Epoch 3 Iteration 130: loss = 0.629342794418335
+Epoch 3 Iteration 140: loss = 0.6334958672523499
+Epoch 3 Iteration 150: loss = 0.6544543504714966
+Epoch 3 Iteration 160: loss = 0.6272485852241516
+Epoch 3 Iteration 170: loss = 0.6578679084777832
+Epoch 3 Iteration 180: loss = 0.6452987790107727
+Epoch 3 Iteration 190: loss = 0.6521722078323364
+Finish epoch 3 epLoss: 0.6437
+
+Epoch 4/20
+====================
+Epoch 4 Iteration 0: loss = 0.6478714942932129
+Epoch 4 Iteration 10: loss = 0.6491270661354065
+Epoch 4 Iteration 20: loss = 0.6303292512893677
+Epoch 4 Iteration 30: loss = 0.6335760354995728
+Epoch 4 Iteration 40: loss = 0.6335852742195129
+Epoch 4 Iteration 50: loss = 0.6253024935722351
+Epoch 4 Iteration 60: loss = 0.6477324962615967
+Epoch 4 Iteration 70: loss = 0.6351128816604614
+Epoch 4 Iteration 80: loss = 0.6276629567146301
+Epoch 4 Iteration 90: loss = 0.6393344402313232
+Epoch 4 Iteration 100: loss = 0.6306934356689453
+Epoch 4 Iteration 110: loss = 0.6483067870140076
+Epoch 4 Iteration 120: loss = 0.634601354598999
+Epoch 4 Iteration 130: loss = 0.6589328050613403
+Epoch 4 Iteration 140: loss = 0.6316346526145935
+Epoch 4 Iteration 150: loss = 0.635438084602356
+Epoch 4 Iteration 160: loss = 0.6376535296440125
+Epoch 4 Iteration 170: loss = 0.6306979656219482
+Epoch 4 Iteration 180: loss = 0.6504195928573608
+Epoch 4 Iteration 190: loss = 0.6624671220779419
+Finish epoch 4 epLoss: 0.6424
+
+Epoch 5/20
+====================
+Epoch 5 Iteration 0: loss = 0.6537744998931885
+Epoch 5 Iteration 10: loss = 0.6330184936523438
+Epoch 5 Iteration 20: loss = 0.6403018236160278
+Epoch 5 Iteration 30: loss = 0.6468403935432434
+Epoch 5 Iteration 40: loss = 0.6688920259475708
+Epoch 5 Iteration 50: loss = 0.6412211060523987
+
+^CTraceback (most recent call last):
+  File "train_lstm_para.py", line 80, in <module>
+    temp = torch.as_tensor(bert.encode(list(para[:, k]))) # para[:,k] == the kth paragraph, a list of n sents
+  File "/home/cxing95/anaconda3/lib/python3.6/site-packages/bert_serving/client/__init__.py", line 205, in arg_wrapper
+    return func(self, *args, **kwargs)
+  File "/home/cxing95/anaconda3/lib/python3.6/site-packages/bert_serving/client/__init__.py", line 290, in encode
+    r = self._recv_ndarray(req_id)
+  File "/home/cxing95/anaconda3/lib/python3.6/site-packages/bert_serving/client/__init__.py", line 169, in _recv_ndarray
+    request_id, response = self._recv(wait_for_req_id)
+  File "/home/cxing95/anaconda3/lib/python3.6/site-packages/bert_serving/client/__init__.py", line 152, in _recv
+    response = self.receiver.recv_multipart()
+  File "/home/cxing95/anaconda3/lib/python3.6/site-packages/zmq/sugar/socket.py", line 467, in recv_multipart
+    parts = [self.recv(flags, copy=copy, track=track)]
+  File "zmq/backend/cython/socket.pyx", line 788, in zmq.backend.cython.socket.Socket.recv
+  File "zmq/backend/cython/socket.pyx", line 824, in zmq.backend.cython.socket.Socket.recv
+  File "zmq/backend/cython/socket.pyx", line 186, in zmq.backend.cython.socket._recv_copy
+  File "zmq/backend/cython/checkrc.pxd", line 12, in zmq.backend.cython.checkrc._check_rc
+KeyboardInterrupt
+]0;cxing95@speech10: ~/4080/RL-for-QA[01;32mcxing95@speech10[00m:[01;34m~/4080/RL-for-QA[00m$ exit
+exit
+
+Script done on Fri 22 Feb 2019 09:09:40 AM EST
