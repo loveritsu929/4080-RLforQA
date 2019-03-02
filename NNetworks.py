@@ -51,7 +51,7 @@ class MyLSTM(nn.Module):
             out = self.leaky_relu(x)
             # Decode hidden state of last time step
             out = self.fc(out[:, -1, :]) #  False: (seq_len, batch, hidden_size * num_directions)
-            out = self.sigmoid(out)
+            #out = self.sigmoid(out)
             return out
         
         if self.mode == 'test':

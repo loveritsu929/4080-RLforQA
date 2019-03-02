@@ -24,7 +24,12 @@ batchSize = 1024
 lnR = 1e-2
 maxEpoches = 20
 
-modelSaveDir = './exps/lstm_para_1'
+modelSaveDir = './exps/lstm_para_2'
+if not os.path.exists(modelSaveDir):
+    os.makedirs(modelSaveDir)
+    
+
+
 subrange = 204800
 trainDataset = dlDataset.ParaDataset(mode='train')
 loss_weights = torch.as_tensor(sklearn.utils.class_weight.compute_class_weight('balanced', [0,1], trainDataset.label_array[:subrange])).float()
@@ -53,7 +58,7 @@ class MyLoss(nn.Module):
                 loss += (1 - torch.mul(out[i],-1)) * loss_weights[0]
         return loss
     
-lossFunction = nn.CrossEntropyLoss(weight = loss_weights)
+lossFunction = nn.BCEWithLogitsLoss(weight = loss_weights) #nn.CrossEntropyLoss(weight = loss_weights)
 #===================== training
 best_acc = 0.0
 best_model_wts = copy.deepcopy(model.state_dict())
@@ -84,7 +89,7 @@ for ep in range(maxEpoches):
         sample = sample.to(device)
         label = label.to(device)
         
-        out = model(sample) #.squeeze() # trainning: 1d sigmoid score
+        out = model(sample) #.squeeze() # trainning: fc output  ##1d sigmoid score
         loss = lossFunction(out, label)
         
         # update
@@ -102,7 +107,7 @@ for ep in range(maxEpoches):
 #    if epoch_acc > best_acc:
 #        best_acc = epoch_acc
 #        best_model_wts = copy.deepcopy(model.state_dict())
-    torch.save(model.state_dict(), os.path.join(modelSaveDir, 'exp1_ep{}.mdl'.format(ep)))
+    torch.save(model.state_dict(), os.path.join(modelSaveDir, 'ep{}_loss={.4f}.mdl'.format(ep,running_loss)))
     epoch_loss = running_loss / len(trainDataset)
     
     print('Finish epoch {} epLoss: {:.4f}\n'.format(ep, epoch_loss))
