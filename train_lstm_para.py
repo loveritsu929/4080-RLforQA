@@ -1,7 +1,4 @@
 # -*- coding: utf-8 -*-
-
-# -*- coding: utf-8 -*-
-import time
 import os, copy
 import torch
 import torch.nn as nn
@@ -13,7 +10,7 @@ import sklearn
 
 import NNetworks
 import dlDataset
-import testExp
+#import testExp
 
 from bert_serving.client import BertClient
 
@@ -21,14 +18,21 @@ from bert_serving.client import BertClient
 device = torch.device('cuda:0')
 
 batchSize = 1024
-lnR = 5e-2
+lnR = 2e-2
 maxEpoches = 20
+currentRpoch = 0
 
 modelSaveDir = './exps/lstm_para_2'
+model_weight = 'ep2_loss=138533.3524.mdl'
 if not os.path.exists(modelSaveDir):
     os.makedirs(modelSaveDir)
-    
-
+model = NNetworks.MyLSTM()
+if os.path.isfile(os.path.join(modelSaveDir, model_weight)):
+	print('Continue training: ', model_weight)
+	model.load_state_dict(torch.load(os.path.join(modelSaveDir, model_weight)))
+	currentEpoch = int(model_weight.split('_')[0][2:]) + 1
+	print('Start from epoch {}'.format(currentEpoch))
+model = model.to(device)
 
 subrange = 204800
 trainDataset = dlDataset.ParaDataset(mode='train')
@@ -37,10 +41,7 @@ loss_weights = loss_weights.to(device)
 trainDataset = data.Subset(trainDataset, [i for i in range(subrange)])
 trainLoader = data.DataLoader(trainDataset, batch_size = batchSize, shuffle = True, num_workers = 0)
 
-model = NNetworks.MyLSTM()
-model = model.to(device) # or model = model.to(device)
 optimizer = optim.Adam(model.parameters(), lr = lnR, amsgrad = True)
-
 bert = BertClient(check_length=False)
 #=====================
 class MyLoss(nn.Module):
@@ -65,7 +66,7 @@ lossFunction = nn.CrossEntropyLoss(weight = loss_weights)
 best_acc = 0.0
 best_model_wts = copy.deepcopy(model.state_dict())
 print("Ready for trainning")
-for ep in range(maxEpoches):
+for ep in range(currentEpoch, maxEpoches):
     print('Epoch {}/{}'.format(ep, maxEpoches))
     print('=' * 20)
     model.set_mode('train')
@@ -105,12 +106,12 @@ for ep in range(maxEpoches):
         
         # batchSize samples in each iteration 
         if i % 10 == 0:
-            print('Epoch {} Iteration {}: loss = {}'.format(ep,i,loss.item()))
+            print('Epoch {} Iteration {}: loss = {:.6f}'.format(ep,i,loss.item()))
              # deep copy the model
 #    if epoch_acc > best_acc:
 #        best_acc = epoch_acc
 #        best_model_wts = copy.deepcopy(model.state_dict())
-    torch.save(model.state_dict(), os.path.join(modelSaveDir, 'ep{}_loss={.4f}.mdl'.format(ep,running_loss)))
+    torch.save(model.state_dict(), os.path.join(modelSaveDir, 'ep{}_loss={:.4f}.mdl'.format(ep,running_loss)))
     epoch_loss = running_loss / len(trainDataset)
     
     print('Finish epoch {} epLoss: {:.4f}\n'.format(ep, epoch_loss))

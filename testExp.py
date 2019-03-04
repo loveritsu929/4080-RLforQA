@@ -1,6 +1,4 @@
 # -*- coding: utf-8 -*-
-
-# -*- coding: utf-8 -*-
 import time
 import os, copy
 import torch
@@ -21,7 +19,7 @@ device = torch.device('cuda:0')
 
 batchSize = 2048
 threshold = 0.1
-modelSaveDir = './exps/lstm_para_1'
+modelSaveDir = './exps/lstm_para_2'
 
 testDataset = dlDataset.ParaDataset(mode='test')
 #loss_weights = torch.as_tensor(sklearn.utils.class_weight.compute_class_weight('balanced', [0,1], testDataset.label_array[:10240]))
@@ -60,13 +58,10 @@ def test_model(model, current_acc):
         sample = sample.to(device)
         label = label.to(device)
         
-        out = model(sample) #.squeeze() # testing: fc output, batchSize*1
-        
-        
-        out = torch.max(out)
+        out = model(sample) #.squeeze() # testing: fc output, batchSize*1 
         
         #TODO
-        out = nn.functional.softmax(out)
+        out = nn.functional.softmax(out[:,1]) #scores for label '1'
         maxScore = torch.max(out)
         preds = (out > maxScore - threshold).long()
         
@@ -91,7 +86,7 @@ def test_model(model, current_acc):
     return acc
 
 if __name__ == '__main__':
-    model_w = './exps/lstm_para_1/exp1_ep4.mdl'
+    model_w = './exps/lstm_para_2/ep5_loss=134393.3278.mdl'
     print('To test: ', model_w)
     model = NNetworks.MyLSTM()
     model.load_state_dict(torch.load(model_w))
