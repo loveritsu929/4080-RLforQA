@@ -20,7 +20,7 @@ device = torch.device('cuda:0')
 batchSize = 1024
 lnR = 2e-2
 maxEpoches = 20
-currentRpoch = 0
+currentEpoch = 0
 
 modelSaveDir = './exps/lstm_para_2'
 model_weight = 'ep2_loss=138533.3524.mdl'
