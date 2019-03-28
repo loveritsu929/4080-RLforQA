@@ -71,8 +71,8 @@ def get_para_emb(input_file):
 
 #[a, b, a.*b, a.-b]
 def concat_q_para(q_tensor, para_tensor):
-    assert q_tensor.dim() == 0
-    assert para_tensor.dim() == 0
+    assert q_tensor.dim() == 1
+    assert para_tensor.dim() == 1
     return  torch.cat((q_tensor, para_tensor, q_tensor * para_tensor, q_tensor - para_tensor), dim=0)
 
 def get_cat_emb(para_emb):
@@ -80,6 +80,12 @@ def get_cat_emb(para_emb):
     ds = []
     for q,para,label in tqdm(para_emb):
         bert_emb = bert.encode([q, para]) # 2*1024D np array
+        bert_emb = torch.as_tensor(bert_emb)
+        #print(bert_emb)
+        #print(bert_emb[0])
+        #print(bert_emb[1])
+        #print(bert_emb.size())
+        #print(bert_emb[0].dim())
         q_para = concat_q_para(bert_emb[0], bert_emb[1])
         ds.append([q_para, label])
         
