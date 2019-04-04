@@ -14,11 +14,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.metrics import f1_score
 
-#train_cat = '/media/data1/hotpot/train_cat_part.emb'
-#dev_cat = '/media/data1/hotpot/dev_cat.emb'
+train_cat = '/media/data1/hotpot/train_cat_part.emb'
+dev_cat = '/media/data1/hotpot/dev_cat.emb'
 
-train_cat = '/media/data1/hotpot/train_sent_cat_part.emb'
-dev_cat = '/media/data1/hotpot/dev_sent_cat.emb'
+#train_cat = '/media/data1/hotpot/train_sent_cat_part.emb'
+#dev_cat = '/media/data1/hotpot/dev_sent_cat.emb'
 
 #hyperparameters
 lnR = 0.001
@@ -193,7 +193,7 @@ for epoch in range(numEpoch):
         fp_dict[phase].append(epoch_fp)
         f1 = f1_score(torch.cat(labels), torch.cat(outputs))
         #print('{} Loss: {:.4f} Acc: {:.4f}'.format(phase, epoch_loss, epoch_acc))
-        print('{} Loss: {:.4f} TP%: {:.4f} FP%: {:.4f} F1: {:.4f}'.format(phase, epoch_loss, epoch_tp, epoch_fp, f1))
+        print('{} Loss: {:.4f} TP%: {:.4f} FP%: {:.4f} Acc: {:.4f} F1: {:.4f}'.format(phase, epoch_loss, epoch_tp, epoch_fp,epoch_acc, f1))
         print(' ')
         
         #save the best model

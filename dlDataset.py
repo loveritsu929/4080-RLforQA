@@ -3,7 +3,7 @@ from tqdm import tqdm
 import torch
 import torch.utils.data as data
 from bert_serving.client import BertClient
-
+bert = BertClient(check_length=False)
 train_file = '/media/data1/hotpot/hotpot_train_v1.1.json'
 dev_file = '/media/data1/hotpot/hotpot_dev_fullwiki_v1.json'
 
@@ -30,7 +30,6 @@ def load_file(file_path, file_type):
     else:
         pass
 
-
 def dump_data(data_buffer, file_path, file_type):
     if file_type == "txt":
         with open(file=file_path, mode="wt", encoding="utf-8") as file_stream:
@@ -51,7 +50,6 @@ class SentDataset(data.Dataset):
     # 215662 pos / 3703344
     def __init__(self, mode = 'train'):
         self.mode = mode
-        #self.bertClient = BertClient(check_length=False) # localhost, max_seq_lehgth = inf
         self.fp = load_file(train_file, 'jsn') if mode == 'train' else load_file(dev_file, 'jsn') # a list of qusetions
         self.num_positive, self.dataset_len, self.dataset = self.make_dataset()
         
@@ -81,10 +79,6 @@ class SentDataset(data.Dataset):
                     label = 1 if [title, sent_index] in supports else 0
                     num_positive += 1 if label == 1 else 0
                     ds.append((question, sent_sample, label))
-        
-        assert ds_len == len(ds)
-        
-            
         return num_positive, ds_len, ds
     
     def __len__(self):
@@ -93,11 +87,6 @@ class SentDataset(data.Dataset):
     def __getitem__(self, index):
         return self.dataset[index]
     
-    
-    
-    
-    
-#TODO: sentence padding
 class ParaDataset(data.Dataset):
     ''' a dataset for hotpotQA
         pure DL approach
@@ -107,9 +96,8 @@ class ParaDataset(data.Dataset):
     
     def __init__(self, mode='train'):
         self.mode = mode
-        #self.bertClient = BertClient(check_length=False) # localhost, max_seq_lehgth = inf
         self.fp = load_file(train_file, 'jsn') if mode == 'train' else load_file(dev_file, 'jsn') # a list of qusetions
-        self.dataset_len, self.dataset, self.label_array = self.make_dataset()
+        self.dataset= self.make_dataset()
         
     def para_padding(self, para_list, maxLen):
         para = para_list
@@ -123,12 +111,10 @@ class ParaDataset(data.Dataset):
     def make_dataset(self):
         # need: question, para_title+sentence, label
         # tensor n * 2048 + label
-        ds_len = 0
         ds = []
-        label_array = []
         for qdict in self.fp:
             supports = qdict['supporting_facts'] # a list of 2-element lists of facts with form [title, sent_id]
-            fact_titles = [fact[0] for fact in supports] # only the titles of supporting paragraphs
+            #fact_titles = [fact[0] for fact in supports] # only the titles of supporting paragraphs
             
             question = qdict['question']
             context = qdict['context'] # a list of 2-element list [title, paragraph]
@@ -138,30 +124,26 @@ class ParaDataset(data.Dataset):
             # some articles in the fullwiki dev/test sets have zero paragraphs
             if len(context) == 0:
                 context = [['some random title', ['some random stuff']]]
-            
             context = [[title, list(filter(lambda x: x != '' and x != ' ', para))] for title, para in context] # remove empty sentence in para
-            
-            maxParaLen = max([len(para) for title, para in context])
+            #maxParaLen = max([len(para) for title, para in context])
             for title, paragraph in context:
-                ds_len += 1
-                label = 1 if title in fact_titles else 0
-                label_array.append(label)
-                
-                #paragraph = list(filter(lambda x: x != '' and x != ' ', paragraph)) # remove empty sentence in para
-                paragraph = self.para_padding(paragraph, maxParaLen)
-                paragraph = [title] + paragraph
+                label = [0] * len(paragraph)
+                for i, _ in enumerate(label):
+                    if [title, i] in supports:
+                        label[i] = 1
+                #paragraph = self.para_padding(paragraph, maxParaLen)
+                paragraph[0] = title + ': ' + paragraph[0]
                 ds.append((question, paragraph, label))
-        
-        assert ds_len == len(ds) == len(label_array)
-        
-            
-        return ds_len, ds, label_array
+        return ds
     
     def __len__(self):
         return self.dataset_len
     
     def __getitem__(self, index):
-        return self.dataset[index]
+        q, para, labels = self.dataset[index]
+        q_t = torch.as_tensor(bert.encode([q]))
+        para_t = torch.as_tensor(bert.encode(para))
+        return q_t, para_t, labels
     
 #    def __getitem__(self, index):
 #        '''
@@ -204,7 +186,7 @@ class ParaDataset(data.Dataset):
 
 # test case            
 if __name__ == '__main__':
-    ds1 = ParaDataset(mode='train')
+    #Dds1 = ParaDataset(mode='train')
     ds2 = ParaDataset(mode='test')
     '''
     ds[0] = 
