@@ -11,21 +11,30 @@ from utility import *
 import json
 import torch
 import torch.nn as nn
+import random as rd
+
+nums = [i for i in range(1000)]
+selected = []
+for i in nums:
+    if rd.random() <= 0.05:
+        selected.append(i)
+        
+print(len(selected))
 #fp0 = load_file('./data/word_vocabulary','obj')
 #fp1 = load_file('./data/word_embedding','obj')
 #fp2 = load_file('/media/data1/hotpot/train_composite','obj')   # change data path
 
 # issue: some sent in para is empty
-test = load_file('/media/data1/hotpot/hotpot_dev_fullwiki_v1.json', 'jsn')
-qtitle = 'The Hilltop (newspaper)'#'East Tennessee Natural Gas Pipeline'
-print('start')
-for q in test:
-    for title, para in q['context']:
-        if title == qtitle:
-            print(para)
-            with open('./issue.json', mode = 'w') as js:
-                json.dump(q, js, indent = 4)
-            break
+#test = load_file('/media/data1/hotpot/hotpot_dev_fullwiki_v1.json', 'jsn')
+#qtitle = 'The Hilltop (newspaper)'#'East Tennessee Natural Gas Pipeline'
+#print('start')
+#for q in test:
+#    for title, para in q['context']:
+#        if title == qtitle:
+#            print(para)
+#            with open('./issue.json', mode = 'w') as js:
+#                json.dump(q, js, indent = 4)
+#            break
 
 #training set
 #dict_keys(['fact_handles', 'sentence_source_array', 'sentence_length_array', 'sentence_symbols_array', 

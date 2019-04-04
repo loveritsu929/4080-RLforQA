@@ -48,6 +48,7 @@ def dump_data(data_buffer, file_path, file_type):
         pass
     
 class SentDataset(data.Dataset):
+    # 215662 pos / 3703344
     def __init__(self, mode = 'train'):
         self.mode = mode
         #self.bertClient = BertClient(check_length=False) # localhost, max_seq_lehgth = inf
