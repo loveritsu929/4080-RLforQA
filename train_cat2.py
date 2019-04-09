@@ -123,6 +123,7 @@ class MyCNN(nn.Module):
         
         self.dropout = nn.Dropout(p = 0.2)
         self.relu = nn.LeakyReLU()
+        self.softmax = nn.Softmax()
         
     def forward(self, x):
         
@@ -137,6 +138,7 @@ class MyCNN(nn.Module):
         
         h = self.fc3(h)
         h = self.relu(h)
+        h = self.softmax(h)
         
         return h
 datasets = {}
