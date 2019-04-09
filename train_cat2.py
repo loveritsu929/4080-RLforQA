@@ -6,7 +6,7 @@ Created on Tue Mar 26 17:43:40 2019
 @author: cxing95
 """
 
-import csv, torch, sys, copy, os
+import csv, torch, sys, copy, os, pickle
 import torch.nn as nn
 import torch.utils.data as data
 import torch.optim as optim
@@ -14,7 +14,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.metrics import f1_score
 from bert_serving.client import BertClient
-from para_emb import get_para_emb, concat_q_para
 
 bert = BertClient(ip='130.63.94.249', check_length=False)
 train_file = '/media/data1/hotpot/hotpot_train_v1.1.json'
@@ -24,6 +23,49 @@ lnR = 0.001
 numEpoch = 100
 
 device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
+
+def load_file(file_path, file_type):
+    if file_type == "txt":
+        with open(file=file_path, mode="rt", encoding="utf-8") as file_stream:
+            return file_stream.read().splitlines()
+
+    elif file_type == "jsn":
+        with open(file=file_path, mode="rt", encoding="utf-8") as file_stream:
+            return json.load(file_stream)
+
+    elif file_type == "obj":
+        with open(file=file_path, mode="rb") as file_stream:
+            return pickle.load(file_stream)
+
+    else:
+        pass
+    
+def get_para_emb(input_file):
+    fp = load_file(input_file, 'jsn')
+    ds = []
+    #labels = []
+    # one thrid of the training set
+    for qdict in fp[:int(len(fp)/3)]:
+        supports = qdict['supporting_facts'] # a list of 2-element lists of facts with form [title, sent_id]
+        fact_titles = [fact[0] for fact in supports] # only the titles of supporting paragraphs         
+        question = qdict['question']
+        context = qdict['context'] # a list of 2-element list [title, paragraph]
+        # some articles in the fullwiki dev/test sets have zero paragraphs
+        if len(context) == 0:
+            context = [['some random title', ['some random stuff']]]   
+        for title, paragraph in context:
+            label = 1 if title in fact_titles else 0
+            #labels.append(label)
+            para_str = ''.join(paragraph)
+            ds.append([question, para_str, label])
+
+    return ds
+
+#[a, b, a.*b, a.-b]
+def concat_q_para(q_tensor, para_tensor):
+    assert q_tensor.dim() == 1
+    assert para_tensor.dim() == 1
+    return  torch.cat((q_tensor, para_tensor, q_tensor * para_tensor, q_tensor - para_tensor), dim=0)
 
 class CatDataset(data.Dataset):
     ''' a dataset for my sentence embedding
