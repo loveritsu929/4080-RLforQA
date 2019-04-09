@@ -14,7 +14,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.metrics import f1_score
 from bert_serving.client import BertClient
-from para_emb import get_para_emb, concat_q_para, get_cat_emb
+from para_emb import get_para_emb, concat_q_para
 
 bert = BertClient(ip='130.63.94.249', check_length=False)
 train_file = '/media/data1/hotpot/hotpot_train_v1.1.json'
