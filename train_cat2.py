@@ -6,7 +6,7 @@ Created on Tue Mar 26 17:43:40 2019
 @author: cxing95
 """
 
-import csv, torch, sys, copy, os, pickle
+import csv, torch, sys, copy, os, pickle, json
 import torch.nn as nn
 import torch.utils.data as data
 import torch.optim as optim
@@ -20,7 +20,7 @@ train_file = '/media/data1/hotpot/hotpot_train_v1.1.json'
 dev_file = '/media/data1/hotpot/hotpot_dev_fullwiki_v1.json'
 #hyperparameters
 lnR = 0.001
-numEpoch = 100
+numEpoch = 50
 
 device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 
