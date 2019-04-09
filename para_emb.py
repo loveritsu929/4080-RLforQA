@@ -5,7 +5,7 @@ import numpy as np
 import csv, torch, pickle, json
 
 
-bert = BertClient(check_length=False)
+#bert = BertClient(check_length=False)
 train_file = '/media/data1/hotpot/hotpot_train_v1.1.json'
 dev_file = '/media/data1/hotpot/hotpot_dev_fullwiki_v1.json'
 
