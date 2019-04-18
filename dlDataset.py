@@ -2,8 +2,8 @@ import json, os, pickle
 from tqdm import tqdm
 import torch
 import torch.utils.data as data
-from bert_serving.client import BertClient
-bert = BertClient(check_length=False)
+#from bert_serving.client import BertClient
+#bert = BertClient(check_length=False)
 train_file = '/media/data1/hotpot/hotpot_train_v1.1.json'
 dev_file = '/media/data1/hotpot/hotpot_dev_fullwiki_v1.json'
 
@@ -141,8 +141,8 @@ class ParaDataset(data.Dataset):
     
     def __getitem__(self, index):
         q, para, labels = self.dataset[index]
-        q_t = torch.as_tensor(bert.encode([q]))
-        para_t = torch.as_tensor(bert.encode(para))
+#        q_t = torch.as_tensor(bert.encode([q]))
+#        para_t = torch.as_tensor(bert.encode(para))
         return q_t, para_t, labels
     
 #    def __getitem__(self, index):
@@ -184,10 +184,77 @@ class ParaDataset(data.Dataset):
 #        
 #        return question_vec, sent_mat, label_mat
 
-# test case            
+# test case       
+
+
+
+class SentParaDataset(data.Dataset):
+    ''' a dataset for hotpotQA
+        pure DL approach
+        899667 paras
+        load the entire dataset file into memory
+    '''
+    
+    def __init__(self, mode='train'):
+        self.mode = mode
+        self.fp = load_file(train_file, 'jsn') if mode == 'train' else load_file(dev_file, 'jsn') # a list of qusetions
+        self.dataset= self.make_dataset()
+        
+    def para_padding(self, para_list, maxLen):
+        para = para_list
+        paraLen = len(para_list)
+        diff = maxLen - paraLen
+        times = int(maxLen/paraLen)
+        if diff > 0:
+            para = (para * (times+1))[:maxLen]
+        return para
+    
+    def make_dataset(self):
+        # need: question, para_title+sentence, label
+        # tensor n * 2048 + label
+        ds = []
+        for qdict in self.fp:
+            supports = qdict['supporting_facts'] # a list of 2-element lists of facts with form [title, sent_id]
+            fact_titles = [fact[0] for fact in supports] # only the titles of supporting paragraphs
+            
+            question = qdict['question']
+            context = qdict['context'] # a list of 2-element list [title, paragraph]
+            
+            # some articles in the fullwiki dev/test sets have zero paragraphs
+            if len(context) == 0:
+                context = [['some random title', ['some random stuff']]]
+            context = [[title, list(filter(lambda x: x != '' and x != ' ', para))] for title, para in context] # remove empty sentence in para
+            #maxParaLen = max([len(para) for title, para in context])
+            for title, sents in context:
+                sent_labels = [0] * len(sents)
+                for i, _ in enumerate(sent_labels):
+                    if [title, i] in supports:
+                        sent_labels[i] = 1
+                #paragraph = self.para_padding(paragraph, maxParaLen)
+                sents[0] = title + ': ' + sents[0]
+                para = ''.join(sents)
+                para_label = 1 if title in fact_titles else 0
+                ds.append((question, sents, para, sent_labels, para_label))
+        return ds
+    
+    def __len__(self):
+        return len(self.dataset)
+    
+    def __getitem__(self, index):
+#        q, para, labels = self.dataset[index]
+#        q_t = torch.as_tensor(bert.encode([q]))
+#        para_t = torch.as_tensor(bert.encode(para))
+#        return q_t, para_t, labels
+        return self.dataset[index]
+
+
+
+
+
+     
 if __name__ == '__main__':
     #Dds1 = ParaDataset(mode='train')
-    ds2 = ParaDataset(mode='test')
+    ds2 = SentParaDataset(mode='test')
     '''
     ds[0] = 
     ("Which magazine was started first Arthur's Magazine or First for Women?",

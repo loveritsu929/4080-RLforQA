@@ -62,7 +62,46 @@ class MyLSTM(nn.Module):
             out = self.fc(out[:, -1, :]) #   batch,seq,feature         False: (seq_len, batch, hidden_size * num_directions)
             #out = self.softmax(out)
             return out
+
+
+        
+class SentParaNN(nn.Module):
+    def __init__(self):
+        super(SentParaNN, self).__init__()
+        self.lstm = nn.LSTM(input_size=1024, hidden_size=1024, num_layers=2, dropout = 0.0, batch_first=True, bidirectional = True)
+        
+        self.paraNN = nn.Sequential(
+                nn.Linear(1024, 512),
+                nn.ReLU(),
+                nn.Linear(512, 256),
+                nn.ReLU(),
+                nn.Linear(256, 2)
+                )
+        
+        self.sentNN = nn.Sequential(
+                nn.Linear(2048, 1024), #bidirection
+                nn.ReLU(),
+                nn.Linear(1024, 512),
+                nn.ReLU(),
+                nn.Linear(512, 2)
+                )
+        
+        self.relu = nn.ReLU()
+        self.sigmoid = nn.Sigmoid()
+        self.para_softmax = nn.Softmax(dim=1)
+        self.sent_softmax = nn.Softmax(dim=2)
     
+    def forward(self, sents, para):
+        para_out = self.paraNN(para)
+        para_out = self.para_softmax(para_out)
+        
+        sents_out, _ = self.lstm(sents)
+        sents_out = self.relu(sents_out)
+        sents_out = self.sentNN(out[:, :, :])
+        sents_out = self.sent_softmax(sents_out)
+        
+        return sents_out, para_out
+        
 if __name__ == '__main__':
     net = MyLSTM()
     input_tensor = torch.rand(3,20,1024)
