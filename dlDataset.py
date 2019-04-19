@@ -210,8 +210,6 @@ class SentParaDataset(data.Dataset):
         return para
     
     def make_dataset(self):
-        # need: question, para_title+sentence, label
-        # tensor n * 2048 + label
         ds = []
         for qdict in self.fp:
             supports = qdict['supporting_facts'] # a list of 2-element lists of facts with form [title, sent_id]
@@ -224,27 +222,24 @@ class SentParaDataset(data.Dataset):
             if len(context) == 0:
                 context = [['some random title', ['some random stuff']]]
             context = [[title, list(filter(lambda x: x != '' and x != ' ', para))] for title, para in context] # remove empty sentence in para
-            #maxParaLen = max([len(para) for title, para in context])
             for title, sents in context:
                 sent_labels = [0] * len(sents)
                 for i, _ in enumerate(sent_labels):
                     if [title, i] in supports:
                         sent_labels[i] = 1
-                #paragraph = self.para_padding(paragraph, maxParaLen)
+                        
                 sents[0] = title + ': ' + sents[0]
+                sents.insert(0, question+' ')
                 para = ''.join(sents)
                 para_label = 1 if title in fact_titles else 0
-                ds.append((question, sents, para, sent_labels, para_label))
+                #ds.append((question, sents, para, sent_labels, para_label))
+                ds.append((sents, para, sent_labels, para_label))
         return ds
     
     def __len__(self):
         return len(self.dataset)
     
     def __getitem__(self, index):
-#        q, para, labels = self.dataset[index]
-#        q_t = torch.as_tensor(bert.encode([q]))
-#        para_t = torch.as_tensor(bert.encode(para))
-#        return q_t, para_t, labels
         return self.dataset[index]
 
 

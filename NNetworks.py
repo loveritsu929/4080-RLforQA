@@ -93,12 +93,12 @@ class SentParaNN(nn.Module):
     
     def forward(self, sents, para):
         para_out = self.paraNN(para)
-        para_out = self.para_softmax(para_out)
+        #para_out = self.para_softmax(para_out)
         
         sents_out, _ = self.lstm(sents)
         sents_out = self.relu(sents_out)
-        sents_out = self.sentNN(sents_out[:, :, :])
-        sents_out = self.sent_softmax(sents_out)
+        sents_out = self.sentNN(sents_out[:, 1:, :])
+        #sents_out = self.sent_softmax(sents_out)
         
         return sents_out, para_out
         
