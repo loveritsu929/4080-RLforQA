@@ -113,8 +113,8 @@ for epoch in range(numEpoch):
                 s_out, p_out = model(sents, para)
                 _, s_preds = torch.max(s_out, dim=2)
                 loss = 0
-                for i, item in enumerate(s_out): # batch*seq*2
-                    loss += loss_func(item, sents_label[i])
+                for j, item in enumerate(s_out): # batch*seq*2
+                    loss += loss_func(item, sents_label[j])
                 loss += loss_func(p_out, para_label)
                 
                 #backprop
@@ -146,4 +146,4 @@ for epoch in range(numEpoch):
                 best_acc = epoch_acc
             #best_model_wts = copy.deepcopy(model.state_dict())
             #torch.save(model.state_dict(), os.path.join('./my-models', 'bestmodel_{}.mdl'.format(file_abbr)))
-print('Finish Training, Best val TP%:{:4f} Best Acc:{:.4f} Best F1:{:.4f}'.format(best_tp, best_acc,best_f1))
+print('Finish Training, Best Acc:{:.4f} Best F1:{:.4f}'.format(best_acc,best_f1))
