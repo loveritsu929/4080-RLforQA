@@ -97,12 +97,13 @@ class SentParaNN(nn.Module):
         
         sents_out, _ = self.lstm(sents)
         sents_out = self.relu(sents_out)
-        sents_out = self.sentNN(out[:, :, :])
+        sents_out = self.sentNN(sents_out[:, :, :])
         sents_out = self.sent_softmax(sents_out)
         
         return sents_out, para_out
         
 if __name__ == '__main__':
-    net = MyLSTM()
-    input_tensor = torch.rand(3,20,1024)
-    out = net(input_tensor)
+    net = SentParaNN()
+    s_t = torch.rand(1,10,1024)
+    p_t = torch.rand(1,1024)
+    s_out, p_out = net(s_t, p_t)
