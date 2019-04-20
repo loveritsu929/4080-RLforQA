@@ -221,7 +221,7 @@ class SentParaDataset(data.Dataset):
             # some articles in the fullwiki dev/test sets have zero paragraphs
             if len(context) == 0:
                 context = [['some random title', ['some random stuff']]]
-            context = [[title, list(filter(lambda x: x != '' and x != ' ', para))] for title, para in context] # remove empty sentence in para
+            context = [[title, list(filter(lambda x: x != '' and x != ' ' and x != '  ', para))] for title, para in context] # remove empty sentence in para
             for title, sents in context:
                 sent_labels = [0] * len(sents)
                 for i, _ in enumerate(sent_labels):

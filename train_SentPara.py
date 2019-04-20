@@ -50,7 +50,7 @@ def my_collate(batch):
     
     s_t = []
     for i, sents_list in enumerate(sents):
-        sents_list = list(filter(lambda x: x != '' and x != ' ', sents_list))
+        #sents_list = list(filter(lambda x: x != '' and x != ' ' and x != '  ', sents_list))
         s_t.append(torch.as_tensor(bert.encode(sents_list)))
     s_t = pad_sequence(s_t, batch_first=True)
     p_t = torch.as_tensor(bert.encode(para))
