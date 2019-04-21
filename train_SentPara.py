@@ -127,17 +127,17 @@ for epoch in range(numEpoch):
             running_loss += loss.item() * batchSize
             running_corrects += torch.sum(s_preds == sents_label.data)
             
-            labels.append(sents_label)
-            print(sents_label.size()) # 256 * 16
-            print(s_preds.size()) # 256 * 16
-            outputs.append(s_preds)
+            labels.append(sents_label.view(1,-1))
+            #print(sents_label.size()) # 256 * 16
+            #print(s_preds.size()) # 256 * 16
+            outputs.append(s_preds.view(1,-1))
             if i%50==0:     
                 print('Epoch {} Iteration {}: running_corrects: {} running loss = {:4f}'.format(epoch+1,i,running_corrects,running_loss))
         
             
         epoch_loss = running_loss / len(datasets[phase])
         epoch_acc = running_corrects.double() / len(datasets[phase])
-        f1 = f1_score(torch.cat(labels), torch.cat(outputs))
+        f1 = f1_score(torch.cat(labels, dim=1), torch.cat(outputs, dim=1))
         #print('{} Loss: {:.4f} Acc: {:.4f}'.format(phase, epoch_loss, epoch_acc))
         print('{} Loss: {:.4f} Acc: {:.4f} F1: {:.4f}'.format(phase, epoch_loss, epoch_acc, f1))
         print(' ')
