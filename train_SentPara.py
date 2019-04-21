@@ -137,7 +137,8 @@ for epoch in range(numEpoch):
             
         epoch_loss = running_loss / len(datasets[phase])
         epoch_acc = running_corrects.double() / len(datasets[phase])
-        f1 = f1_score(torch.cat(labels, dim=1), torch.cat(outputs, dim=1))
+        f1 = f1_score(torch.cat(labels, dim=1).squeeze().cpu().numpy(), 
+                      torch.cat(outputs, dim=1).squeeze().cpu().numpy())
         #print('{} Loss: {:.4f} Acc: {:.4f}'.format(phase, epoch_loss, epoch_acc))
         print('{} Loss: {:.4f} Acc: {:.4f} F1: {:.4f}'.format(phase, epoch_loss, epoch_acc, f1))
         print(' ')
