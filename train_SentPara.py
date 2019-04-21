@@ -17,7 +17,7 @@ bert = BertClient(ip='130.63.94.250', check_length=False) # on server: voice
 #===================== Hyper Parameters
 device = torch.device('cuda:0')
 
-batchSize = 32
+batchSize = 256
 lnR = 1e-3
 numEpoch = 20
 currentEpoch = 0
@@ -61,6 +61,8 @@ def my_collate(batch):
 datasets = {}
 dataloaders = {}
 trainDataset = dlDataset.SentParaDataset(mode='train')
+subrange = 204800
+trainDataset = data.Subset(trainDataset, [i for i in range(subrange)])
 trainLoader = data.DataLoader(trainDataset, batch_size = batchSize, collate_fn=my_collate, shuffle = True, num_workers = 0)
 devDataset = dlDataset.SentParaDataset(mode='test')
 devLoader = data.DataLoader(devDataset, batch_size = batchSize, collate_fn=my_collate, shuffle = False, num_workers = 0)
@@ -126,6 +128,8 @@ for epoch in range(numEpoch):
             running_corrects += torch.sum(s_preds == sents_label.data)
             
             labels.append(sents_label)
+            print(sents_label.size()) # 256 * 16
+            print(s_preds.size()) # 256 * 16
             outputs.append(s_preds)
             if i%50==0:     
                 print('Epoch {} Iteration {}: running_corrects: {} running loss = {:4f}'.format(epoch+1,i,running_corrects,running_loss))
