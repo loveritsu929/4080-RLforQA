@@ -1,0 +1,124 @@
+#========================================================== 
+# default init SimpleNet, sample_sent = title + sentence
+Ready for trainning
+Start Epoch 0
+Test Iteration 0: true_positive: 29
+Test Iteration 10: true_positive: 318
+Test Iteration 20: true_positive: 632
+Test Iteration 30: true_positive: 928
+Test Iteration 40: true_positive: 1222
+Test Iteration 50: true_positive: 1519
+Test Iteration 60: true_positive: 1801
+Test Iteration 70: true_positive: 2086
+Test Iteration 80: true_positive: 2371
+Test Iteration 90: true_positive: 2650
+Test Iteration 100: true_positive: 2942
+Test Iteration 110: true_positive: 3221
+Test Iteration 120: true_positive: 3510
+Test Iteration 130: true_positive: 3794
+Test Iteration 140: true_positive: 4070
+Test Iteration 150: true_positive: 4338
+Test Iteration 160: true_positive: 4628
+Test Iteration 170: true_positive: 4931
+Test Iteration 180: true_positive: 5217
+Test Iteration 190: true_positive: 5522
+Test Iteration 200: true_positive: 5782
+Test Iteration 210: true_positive: 6054
+Test Iteration 220: true_positive: 6363
+Test Iteration 230: true_positive: 6615
+Test Iteration 240: true_positive: 6898
+Test Iteration 250: true_positive: 7159
+Test Iteration 260: true_positive: 7480
+Test Iteration 270: true_positive: 7779
+Test Iteration 280: true_positive: 8067
+Test Iteration 290: true_positive: 8350
+Test Iteration 300: true_positive: 8630
+
+
+In [39]: true_positive
+Out[39]: tensor(8810, device='cuda:0')
+
+In [40]: 8810.0/10298
+Out[40]: 0.8555059234802874
+
+In [41]: epoch_loss
+Out[41]: 0.705771303750256
+
+#============================================================
+# another default init SimpleNet, sample = title + sent
+Ready for testing
+Start Test Epoch 0
+Test Iteration 0: true_positive: 24 Acc: 1.0000
+Test Iteration 10: true_positive: 371 Acc: 0.9973
+Test Iteration 20: true_positive: 705 Acc: 0.9972
+Test Iteration 30: true_positive: 1072 Acc: 0.9972
+Test Iteration 40: true_positive: 1420 Acc: 0.9979
+Test Iteration 50: true_positive: 1748 Acc: 0.9983
+Test Iteration 60: true_positive: 2083 Acc: 0.9986
+Test Iteration 70: true_positive: 2412 Acc: 0.9979
+Test Iteration 80: true_positive: 2749 Acc: 0.9982
+Test Iteration 90: true_positive: 3078 Acc: 0.9981
+Test Iteration 100: true_positive: 3410 Acc: 0.9980
+Test Iteration 110: true_positive: 3747 Acc: 0.9973
+Test Iteration 120: true_positive: 4101 Acc: 0.9973
+Test Iteration 130: true_positive: 4430 Acc: 0.9971
+Test Iteration 140: true_positive: 4797 Acc: 0.9967
+Test Iteration 150: true_positive: 5140 Acc: 0.9967
+Test Iteration 160: true_positive: 5475 Acc: 0.9967
+Test Iteration 170: true_positive: 5774 Acc: 0.9967
+Test Iteration 180: true_positive: 6106 Acc: 0.9969
+Test Iteration 190: true_positive: 6446 Acc: 0.9969
+Test Iteration 200: true_positive: 6765 Acc: 0.9971
+Test Iteration 210: true_positive: 7103 Acc: 0.9972
+Test Iteration 220: true_positive: 7444 Acc: 0.9972
+Test Iteration 230: true_positive: 7788 Acc: 0.9973
+Test Iteration 240: true_positive: 8119 Acc: 0.9971
+Test Iteration 250: true_positive: 8442 Acc: 0.9972
+Test Iteration 260: true_positive: 8783 Acc: 0.9972
+Test Iteration 270: true_positive: 9155 Acc: 0.9973
+Test Iteration 280: true_positive: 9501 Acc: 0.9973
+Test Iteration 290: true_positive: 9783 Acc: 0.9973
+Test Iteration 300: true_positive: 10083 Acc: 0.9974
+Finish test epLoss: 0.7383 true_positie_acc: 0.9975
+
+label
+Out[49]: 
+tensor([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0,
+        0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], device='cuda:0')
+        
+preds
+Out[51]: 
+tensor([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], device='cuda:0')

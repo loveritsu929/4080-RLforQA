@@ -1,0 +1,19 @@
+Epoch 100 Iteration 250: running_corrects: 249610 running loss = 18718.826317
+Epoch 100 Iteration 260: running_corrects: 259549 running loss = 19523.841904
+Epoch 100 Iteration 270: running_corrects: 269500 running loss = 20279.084473
+Epoch 100 Iteration 280: running_corrects: 279425 running loss = 21059.929745
+Epoch 100 Iteration 290: running_corrects: 289368 running loss = 21856.131924
+train Loss: 0.0733 TP%: 0.9230 FP%: 0.0675
+ 
+Epoch 100 Iteration 0: running_corrects: 897 running loss = 482.474060
+Epoch 100 Iteration 10: running_corrects: 9814 running loss = 5182.824097
+Epoch 100 Iteration 20: running_corrects: 18734 running loss = 10148.255981
+Epoch 100 Iteration 30: running_corrects: 27625 running loss = 15270.511719
+Epoch 100 Iteration 40: running_corrects: 36618 running loss = 20048.243042
+Epoch 100 Iteration 50: running_corrects: 45553 running loss = 24807.230164
+Epoch 100 Iteration 60: running_corrects: 54457 running loss = 29705.414093
+Epoch 100 Iteration 70: running_corrects: 63410 running loss = 34549.252472
+dev Loss: 0.4738 TP%: 0.4962 FP%: 0.5611
+ 
+Finish Training, Best val TP%: 0.547085
+

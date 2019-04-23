@@ -1,0 +1,431 @@
+Script started on Tue 09 Apr 2019 12:25:26 AM EDT
+cxing95@speech10:~/4080/RL-for-QA$ python train_cat2.py
+NN structure: 
+MyNN(
+  (fc1): Linear(in_features=4096, out_features=2048, bias=True)
+  (fc2): Linear(in_features=2048, out_features=1024, bias=True)
+  (fc3): Linear(in_features=1024, out_features=2, bias=True)
+  (dropout): Dropout(p=0.5)
+  (relu): LeakyReLU(negative_slope=0.01)
+)
+Epoch 1/50
+--------------------
+Epoch 1 Iteration 0: running_corrects: 709 running loss = 675.599670
+Epoch 1 Iteration 10: running_corrects: 8896 running loss = 12306.971924
+Epoch 1 Iteration 20: running_corrects: 17038 running loss = 18396.773865
+Epoch 1 Iteration 30: running_corrects: 25199 running loss = 23727.347168
+Epoch 1 Iteration 40: running_corrects: 33400 running loss = 28880.900818
+Epoch 1 Iteration 50: running_corrects: 41555 running loss = 34009.245300
+Epoch 1 Iteration 60: running_corrects: 49714 running loss = 39070.672546
+Epoch 1 Iteration 70: running_corrects: 57901 running loss = 44044.395752
+Epoch 1 Iteration 80: running_corrects: 66043 running loss = 49023.746735
+Epoch 1 Iteration 90: running_corrects: 74292 running loss = 53817.177673
+Epoch 1 Iteration 100: running_corrects: 82393 running loss = 58728.256866
+Epoch 1 Iteration 110: running_corrects: 90586 running loss = 63465.885132
+Epoch 1 Iteration 120: running_corrects: 98864 running loss = 68060.758118
+Epoch 1 Iteration 130: running_corrects: 107028 running loss = 72738.797516
+Epoch 1 Iteration 140: running_corrects: 115227 running loss = 77383.036255
+Epoch 1 Iteration 150: running_corrects: 123380 running loss = 82061.629425
+Epoch 1 Iteration 160: running_corrects: 131542 running loss = 86700.590881
+Epoch 1 Iteration 170: running_corrects: 139717 running loss = 91334.122803
+Epoch 1 Iteration 180: running_corrects: 147974 running loss = 95831.980225
+Epoch 1 Iteration 190: running_corrects: 156233 running loss = 100306.317291
+Epoch 1 Iteration 200: running_corrects: 164446 running loss = 104828.441620
+Epoch 1 Iteration 210: running_corrects: 172630 running loss = 109420.750153
+Epoch 1 Iteration 220: running_corrects: 180869 running loss = 113937.233887
+Epoch 1 Iteration 230: running_corrects: 189030 running loss = 118469.236206
+Epoch 1 Iteration 240: running_corrects: 197269 running loss = 123027.798431
+Epoch 1 Iteration 250: running_corrects: 205451 running loss = 127566.340271
+Epoch 1 Iteration 260: running_corrects: 213701 running loss = 132000.195068
+Epoch 1 Iteration 270: running_corrects: 221949 running loss = 136481.144257
+Epoch 1 Iteration 280: running_corrects: 230104 running loss = 141042.169403
+Epoch 1 Iteration 290: running_corrects: 238346 running loss = 145443.387085
+train Loss: 0.4877 TP%: 0.0252 FP%: 0.4402 Acc: 0.8000 F1: 0.0483
+ 
+Epoch 1 Iteration 0: running_corrects: 905 running loss = 332.009491
+Epoch 1 Iteration 10: running_corrects: 9881 running loss = 3708.694275
+Epoch 1 Iteration 20: running_corrects: 18904 running loss = 7073.859741
+dev Loss: 0.3300 TP%: 0.1120 FP%: 0.6060 Acc: 0.8789 F1: 0.1744
+ 
+Epoch 2/50
+--------------------
+Epoch 2 Iteration 0: running_corrects: 809 running loss = 457.191498
+Epoch 2 Iteration 10: running_corrects: 9122 running loss = 4809.162201
+Epoch 2 Iteration 20: running_corrects: 17379 running loss = 9215.430054
+Epoch 2 Iteration 30: running_corrects: 25611 running loss = 13620.954224
+Epoch 2 Iteration 40: running_corrects: 33866 running loss = 18027.663849
+Epoch 2 Iteration 50: running_corrects: 42180 running loss = 22351.725433
+Epoch 2 Iteration 60: running_corrects: 50513 running loss = 26660.034027
+Epoch 2 Iteration 70: running_corrects: 58800 running loss = 30970.586426
+Epoch 2 Iteration 80: running_corrects: 67085 running loss = 35341.097626
+Epoch 2 Iteration 90: running_corrects: 75370 running loss = 39677.773102
+Epoch 2 Iteration 100: running_corrects: 83677 running loss = 43950.310730
+Epoch 2 Iteration 110: running_corrects: 91882 running loss = 48367.961670
+Epoch 2 Iteration 120: running_corrects: 100250 running loss = 52605.731873
+Epoch 2 Iteration 130: running_corrects: 108617 running loss = 56813.090790
+Epoch 2 Iteration 140: running_corrects: 116985 running loss = 61071.785217
+Epoch 2 Iteration 150: running_corrects: 125291 running loss = 65304.363251
+Epoch 2 Iteration 160: running_corrects: 133641 running loss = 69576.587982
+Epoch 2 Iteration 170: running_corrects: 141992 running loss = 73833.394958
+Epoch 2 Iteration 180: running_corrects: 150375 running loss = 78075.738190
+Epoch 2 Iteration 190: running_corrects: 158726 running loss = 82301.635437
+Epoch 2 Iteration 200: running_corrects: 167087 running loss = 86575.329803
+Epoch 2 Iteration 210: running_corrects: 175438 running loss = 90834.077911
+Epoch 2 Iteration 220: running_corrects: 183771 running loss = 95102.546387
+Epoch 2 Iteration 230: running_corrects: 192117 running loss = 99356.781860
+Epoch 2 Iteration 240: running_corrects: 200496 running loss = 103579.762085
+Epoch 2 Iteration 250: running_corrects: 208920 running loss = 107759.646820
+Epoch 2 Iteration 260: running_corrects: 217232 running loss = 112011.048279
+Epoch 2 Iteration 270: running_corrects: 225581 running loss = 116189.516022
+Epoch 2 Iteration 280: running_corrects: 233909 running loss = 120390.810608
+Epoch 2 Iteration 290: running_corrects: 242229 running loss = 124720.905518
+train Loss: 0.4184 TP%: 0.1982 FP%: 0.3923 Acc: 0.8130 F1: 0.2989
+ 
+Epoch 2 Iteration 0: running_corrects: 906 running loss = 323.744537
+Epoch 2 Iteration 10: running_corrects: 9898 running loss = 3563.358917
+Epoch 2 Iteration 20: running_corrects: 18933 running loss = 6787.985138
+dev Loss: 0.3169 TP%: 0.1887 FP%: 0.5555 Acc: 0.8804 F1: 0.2650
+ 
+Epoch 3/50
+--------------------
+Epoch 3 Iteration 0: running_corrects: 843 running loss = 415.965332
+Epoch 3 Iteration 10: running_corrects: 9268 running loss = 4529.719757
+Epoch 3 Iteration 20: running_corrects: 17652 running loss = 8675.776581
+Epoch 3 Iteration 30: running_corrects: 26054 running loss = 12741.234070
+Epoch 3 Iteration 40: running_corrects: 34459 running loss = 16847.340027
+Epoch 3 Iteration 50: running_corrects: 42870 running loss = 20980.025299
+Epoch 3 Iteration 60: running_corrects: 51246 running loss = 25122.060455
+Epoch 3 Iteration 70: running_corrects: 59560 running loss = 29348.998444
+Epoch 3 Iteration 80: running_corrects: 67952 running loss = 33467.055145
+Epoch 3 Iteration 90: running_corrects: 76375 running loss = 37612.143341
+Epoch 3 Iteration 100: running_corrects: 84792 running loss = 41707.347473
+Epoch 3 Iteration 110: running_corrects: 93177 running loss = 45787.704712
+Epoch 3 Iteration 120: running_corrects: 101586 running loss = 49972.122009
+Epoch 3 Iteration 130: running_corrects: 109912 running loss = 54246.628601
+Epoch 3 Iteration 140: running_corrects: 118344 running loss = 58378.038177
+Epoch 3 Iteration 150: running_corrects: 126750 running loss = 62458.888794
+Epoch 3 Iteration 160: running_corrects: 135163 running loss = 66568.937500
+Epoch 3 Iteration 170: running_corrects: 143582 running loss = 70689.409973
+Epoch 3 Iteration 180: running_corrects: 152000 running loss = 74759.919250
+Epoch 3 Iteration 190: running_corrects: 160394 running loss = 78894.026215
+Epoch 3 Iteration 200: running_corrects: 168759 running loss = 83010.073883
+Epoch 3 Iteration 210: running_corrects: 177149 running loss = 87128.085968
+Epoch 3 Iteration 220: running_corrects: 185561 running loss = 91196.281128
+Epoch 3 Iteration 230: running_corrects: 193907 running loss = 95350.257446
+Epoch 3 Iteration 240: running_corrects: 202357 running loss = 99383.978363
+Epoch 3 Iteration 250: running_corrects: 210671 running loss = 103606.494751
+Epoch 3 Iteration 260: running_corrects: 219068 running loss = 107675.073273
+Epoch 3 Iteration 270: running_corrects: 227459 running loss = 111806.085449
+Epoch 3 Iteration 280: running_corrects: 235815 running loss = 116005.712708
+Epoch 3 Iteration 290: running_corrects: 244149 running loss = 120230.280914
+train Loss: 0.4035 TP%: 0.2429 FP%: 0.3679 Acc: 0.8193 F1: 0.3509
+ 
+Epoch 3 Iteration 0: running_corrects: 906 running loss = 335.976807
+Epoch 3 Iteration 10: running_corrects: 9878 running loss = 3647.278656
+Epoch 3 Iteration 20: running_corrects: 18882 running loss = 6936.752075
+dev Loss: 0.3233 TP%: 0.2715 FP%: 0.5581 Acc: 0.8776 F1: 0.3364
+ 
+Epoch 4/50
+--------------------
+Epoch 4 Iteration 0: running_corrects: 840 running loss = 394.504974
+Epoch 4 Iteration 10: running_corrects: 9241 running loss = 4454.547241
+Epoch 4 Iteration 20: running_corrects: 17650 running loss = 8449.773773
+Epoch 4 Iteration 30: running_corrects: 26125 running loss = 12459.248932
+Epoch 4 Iteration 40: running_corrects: 34544 running loss = 16493.893890
+Epoch 4 Iteration 50: running_corrects: 42988 running loss = 20504.248108
+Epoch 4 Iteration 60: running_corrects: 51442 running loss = 24492.307007
+Epoch 4 Iteration 70: running_corrects: 59908 running loss = 28515.707977
+Epoch 4 Iteration 80: running_corrects: 68312 running loss = 32561.085022
+Epoch 4 Iteration 90: running_corrects: 76767 running loss = 36579.837677
+Epoch 4 Iteration 100: running_corrects: 85219 running loss = 40636.439880
+Epoch 4 Iteration 110: running_corrects: 93634 running loss = 44699.965576
+Epoch 4 Iteration 120: running_corrects: 102080 running loss = 48702.494659
+Epoch 4 Iteration 130: running_corrects: 110482 running loss = 52755.334076
+Epoch 4 Iteration 140: running_corrects: 118896 running loss = 56782.097351
+Epoch 4 Iteration 150: running_corrects: 127329 running loss = 60832.381012
+Epoch 4 Iteration 160: running_corrects: 135778 running loss = 64843.013458
+Epoch 4 Iteration 170: running_corrects: 144205 running loss = 68861.026825
+Epoch 4 Iteration 180: running_corrects: 152605 running loss = 72961.613861
+Epoch 4 Iteration 190: running_corrects: 161024 running loss = 77087.105988
+Epoch 4 Iteration 200: running_corrects: 169452 running loss = 81141.673492
+Epoch 4 Iteration 210: running_corrects: 177898 running loss = 85125.462799
+Epoch 4 Iteration 220: running_corrects: 186295 running loss = 89196.595947
+Epoch 4 Iteration 230: running_corrects: 194727 running loss = 93242.695312
+Epoch 4 Iteration 240: running_corrects: 203224 running loss = 97206.336365
+Epoch 4 Iteration 250: running_corrects: 211619 running loss = 101262.842712
+Epoch 4 Iteration 260: running_corrects: 220028 running loss = 105340.665131
+Epoch 4 Iteration 270: running_corrects: 228549 running loss = 109263.933502
+Epoch 4 Iteration 280: running_corrects: 236991 running loss = 113229.854004
+Epoch 4 Iteration 290: running_corrects: 245429 running loss = 117257.853485
+train Loss: 0.3935 TP%: 0.2698 FP%: 0.3522 Acc: 0.8236 F1: 0.3810
+ 
+Epoch 4 Iteration 0: running_corrects: 906 running loss = 314.867462
+Epoch 4 Iteration 10: running_corrects: 9923 running loss = 3429.356079
+Epoch 4 Iteration 20: running_corrects: 18960 running loss = 6534.965912
+dev Loss: 0.3046 TP%: 0.2380 FP%: 0.5313 Acc: 0.8821 F1: 0.3157
+ 
+Epoch 5/50
+--------------------
+Epoch 5 Iteration 0: running_corrects: 861 running loss = 365.852570
+Epoch 5 Iteration 10: running_corrects: 9321 running loss = 4358.409393
+Epoch 5 Iteration 20: running_corrects: 17784 running loss = 8319.636078
+Epoch 5 Iteration 30: running_corrects: 26241 running loss = 12268.520691
+Epoch 5 Iteration 40: running_corrects: 34725 running loss = 16247.506561
+Epoch 5 Iteration 50: running_corrects: 43294 running loss = 20089.797058
+Epoch 5 Iteration 60: running_corrects: 51760 running loss = 24090.136749
+Epoch 5 Iteration 70: running_corrects: 60241 running loss = 28091.457642
+Epoch 5 Iteration 80: running_corrects: 68675 running loss = 32073.543671
+Epoch 5 Iteration 90: running_corrects: 77093 running loss = 36096.362946
+Epoch 5 Iteration 100: running_corrects: 85590 running loss = 40002.885162
+Epoch 5 Iteration 110: running_corrects: 93990 running loss = 44047.818146
+Epoch 5 Iteration 120: running_corrects: 102423 running loss = 48054.218445
+Epoch 5 Iteration 130: running_corrects: 110889 running loss = 52045.341339
+Epoch 5 Iteration 140: running_corrects: 119381 running loss = 56043.650818
+Epoch 5 Iteration 150: running_corrects: 127774 running loss = 60126.233734
+Epoch 5 Iteration 160: running_corrects: 136280 running loss = 64059.657867
+Epoch 5 Iteration 170: running_corrects: 144743 running loss = 68001.138702
+Epoch 5 Iteration 180: running_corrects: 153239 running loss = 71903.638275
+Epoch 5 Iteration 190: running_corrects: 161745 running loss = 75754.815125
+Epoch 5 Iteration 200: running_corrects: 170166 running loss = 79763.900330
+Epoch 5 Iteration 210: running_corrects: 178653 running loss = 83697.269257
+Epoch 5 Iteration 220: running_corrects: 187032 running loss = 87749.695038
+Epoch 5 Iteration 230: running_corrects: 195528 running loss = 91646.586029
+Epoch 5 Iteration 240: running_corrects: 203981 running loss = 95559.538696
+Epoch 5 Iteration 250: running_corrects: 212449 running loss = 99541.297485
+Epoch 5 Iteration 260: running_corrects: 220894 running loss = 103592.504608
+Epoch 5 Iteration 270: running_corrects: 229350 running loss = 107595.377472
+Epoch 5 Iteration 280: running_corrects: 237809 running loss = 111571.865631
+Epoch 5 Iteration 290: running_corrects: 246321 running loss = 115423.673737
+train Loss: 0.3872 TP%: 0.2921 FP%: 0.3449 Acc: 0.8267 F1: 0.4040
+ 
+Epoch 5 Iteration 0: running_corrects: 905 running loss = 309.985565
+Epoch 5 Iteration 10: running_corrects: 9920 running loss = 3374.045410
+Epoch 5 Iteration 20: running_corrects: 18961 running loss = 6422.066681
+dev Loss: 0.2991 TP%: 0.2772 FP%: 0.5288 Acc: 0.8819 F1: 0.3491
+ 
+Epoch 6/50
+--------------------
+Epoch 6 Iteration 0: running_corrects: 847 running loss = 405.019470
+Epoch 6 Iteration 10: running_corrects: 9432 running loss = 4206.610962
+Epoch 6 Iteration 20: running_corrects: 17935 running loss = 8096.698395
+Epoch 6 Iteration 30: running_corrects: 26419 running loss = 11964.647736
+Epoch 6 Iteration 40: running_corrects: 34919 running loss = 15850.246735
+Epoch 6 Iteration 50: running_corrects: 43385 running loss = 19751.125122
+Epoch 6 Iteration 60: running_corrects: 51875 running loss = 23583.698730
+Epoch 6 Iteration 70: running_corrects: 60395 running loss = 27439.461212
+Epoch 6 Iteration 80: running_corrects: 68869 running loss = 31380.905212
+Epoch 6 Iteration 90: running_corrects: 77345 running loss = 35324.599731
+Epoch 6 Iteration 100: running_corrects: 85845 running loss = 39178.588470
+Epoch 6 Iteration 110: running_corrects: 94351 running loss = 43112.486053
+Epoch 6 Iteration 120: running_corrects: 102852 running loss = 47011.235016
+Epoch 6 Iteration 130: running_corrects: 111360 running loss = 50895.261780
+Epoch 6 Iteration 140: running_corrects: 119844 running loss = 54821.289032
+Epoch 6 Iteration 150: running_corrects: 128322 running loss = 58728.653992
+Epoch 6 Iteration 160: running_corrects: 136831 running loss = 62605.554993
+Epoch 6 Iteration 170: running_corrects: 145301 running loss = 66516.563049
+Epoch 6 Iteration 180: running_corrects: 153736 running loss = 70552.351532
+Epoch 6 Iteration 190: running_corrects: 162224 running loss = 74457.830109
+Epoch 6 Iteration 200: running_corrects: 170687 running loss = 78402.871185
+Epoch 6 Iteration 210: running_corrects: 179207 running loss = 82268.948578
+Epoch 6 Iteration 220: running_corrects: 187774 running loss = 86073.242401
+Epoch 6 Iteration 230: running_corrects: 196242 running loss = 89906.499268
+Epoch 6 Iteration 240: running_corrects: 204710 running loss = 93820.648376
+Epoch 6 Iteration 250: running_corrects: 213236 running loss = 97661.682373
+Epoch 6 Iteration 260: running_corrects: 221773 running loss = 101485.819214
+Epoch 6 Iteration 270: running_corrects: 230314 running loss = 105314.657104
+Epoch 6 Iteration 280: running_corrects: 238780 running loss = 109221.283081
+Epoch 6 Iteration 290: running_corrects: 247312 running loss = 113060.175751
+train Loss: 0.3794 TP%: 0.3143 FP%: 0.3369 Acc: 0.8300 F1: 0.4264
+ 
+Epoch 6 Iteration 0: running_corrects: 907 running loss = 301.928497
+Epoch 6 Iteration 10: running_corrects: 9931 running loss = 3322.261047
+Epoch 6 Iteration 20: running_corrects: 18981 running loss = 6309.587280
+dev Loss: 0.2935 TP%: 0.2651 FP%: 0.5240 Acc: 0.8827 F1: 0.3405
+ 
+Epoch 7/50
+--------------------
+Epoch 7 Iteration 0: running_corrects: 880 running loss = 353.240173
+Epoch 7 Iteration 10: running_corrects: 9432 running loss = 4207.802887
+Epoch 7 Iteration 20: running_corrects: 17908 running loss = 8125.885010
+Epoch 7 Iteration 30: running_corrects: 26442 running loss = 11938.302643
+Epoch 7 Iteration 40: running_corrects: 34953 running loss = 15741.867218
+Epoch 7 Iteration 50: running_corrects: 43554 running loss = 19533.441162
+Epoch 7 Iteration 60: running_corrects: 52109 running loss = 23330.461060
+Epoch 7 Iteration 70: running_corrects: 60654 running loss = 27139.716461
+Epoch 7 Iteration 80: running_corrects: 69155 running loss = 30958.911285
+Epoch 7 Iteration 90: running_corrects: 77691 running loss = 34741.863373
+Epoch 7 Iteration 100: running_corrects: 86190 running loss = 38599.411621
+Epoch 7 Iteration 110: running_corrects: 94779 running loss = 42326.636139
+Epoch 7 Iteration 120: running_corrects: 103311 running loss = 46112.989227
+Epoch 7 Iteration 130: running_corrects: 111852 running loss = 49951.485077
+Epoch 7 Iteration 140: running_corrects: 120407 running loss = 53692.969604
+Epoch 7 Iteration 150: running_corrects: 128995 running loss = 57463.898560
+Epoch 7 Iteration 160: running_corrects: 137468 running loss = 61381.888397
+Epoch 7 Iteration 170: running_corrects: 146011 running loss = 65236.163849
+Epoch 7 Iteration 180: running_corrects: 154545 running loss = 68989.277954
+Epoch 7 Iteration 190: running_corrects: 163073 running loss = 72803.000031
+Epoch 7 Iteration 200: running_corrects: 171608 running loss = 76570.865692
+Epoch 7 Iteration 210: running_corrects: 180181 running loss = 80313.243500
+Epoch 7 Iteration 220: running_corrects: 188719 running loss = 84091.705231
+Epoch 7 Iteration 230: running_corrects: 197294 running loss = 87868.769165
+Epoch 7 Iteration 240: running_corrects: 205786 running loss = 91752.242615
+Epoch 7 Iteration 250: running_corrects: 214343 running loss = 95610.968536
+Epoch 7 Iteration 260: running_corrects: 222866 running loss = 99441.350372
+Epoch 7 Iteration 270: running_corrects: 231431 running loss = 103249.730591
+Epoch 7 Iteration 280: running_corrects: 239866 running loss = 107188.135895
+Epoch 7 Iteration 290: running_corrects: 248354 running loss = 111098.765106
+train Loss: 0.3729 TP%: 0.3347 FP%: 0.3275 Acc: 0.8334 F1: 0.4469
+ 
+Epoch 7 Iteration 0: running_corrects: 916 running loss = 298.619934
+Epoch 7 Iteration 10: running_corrects: 9945 running loss = 3281.395691
+Epoch 7 Iteration 20: running_corrects: 19035 running loss = 6239.099213
+dev Loss: 0.2903 TP%: 0.2369 FP%: 0.5022 Acc: 0.8855 F1: 0.3210
+ 
+Epoch 8/50
+--------------------
+Epoch 8 Iteration 0: running_corrects: 843 running loss = 382.046387
+Epoch 8 Iteration 10: running_corrects: 9438 running loss = 4129.630707
+Epoch 8 Iteration 20: running_corrects: 17968 running loss = 7908.334259
+Epoch 8 Iteration 30: running_corrects: 26508 running loss = 11689.919861
+Epoch 8 Iteration 40: running_corrects: 35045 running loss = 15508.626709
+Epoch 8 Iteration 50: running_corrects: 43593 running loss = 19239.101593
+Epoch 8 Iteration 60: running_corrects: 52147 running loss = 22971.204620
+Epoch 8 Iteration 70: running_corrects: 60721 running loss = 26703.071411
+Epoch 8 Iteration 80: running_corrects: 69329 running loss = 30390.021149
+Epoch 8 Iteration 90: running_corrects: 77885 running loss = 34188.278137
+Epoch 8 Iteration 100: running_corrects: 86506 running loss = 37862.516388
+Epoch 8 Iteration 110: running_corrects: 94991 running loss = 41683.540802
+Epoch 8 Iteration 120: running_corrects: 103581 running loss = 45379.371735
+Epoch 8 Iteration 130: running_corrects: 112157 running loss = 49104.845795
+Epoch 8 Iteration 140: running_corrects: 120686 running loss = 52855.474823
+Epoch 8 Iteration 150: running_corrects: 129269 running loss = 56574.315552
+Epoch 8 Iteration 160: running_corrects: 137858 running loss = 60350.666077
+Epoch 8 Iteration 170: running_corrects: 146374 running loss = 64126.211090
+Epoch 8 Iteration 180: running_corrects: 154902 running loss = 67927.854462
+Epoch 8 Iteration 190: running_corrects: 163525 running loss = 71653.888153
+Epoch 8 Iteration 200: running_corrects: 172147 running loss = 75345.186005
+Epoch 8 Iteration 210: running_corrects: 180660 running loss = 79148.932831
+Epoch 8 Iteration 220: running_corrects: 189199 running loss = 82979.602814
+Epoch 8 Iteration 230: running_corrects: 197729 running loss = 86811.783936
+Epoch 8 Iteration 240: running_corrects: 206258 running loss = 90605.734375
+Epoch 8 Iteration 250: running_corrects: 214808 running loss = 94392.770233
+Epoch 8 Iteration 260: running_corrects: 223398 running loss = 98133.893768
+Epoch 8 Iteration 270: running_corrects: 231943 running loss = 101987.025757
+Epoch 8 Iteration 280: running_corrects: 240464 running loss = 105811.956329
+Epoch 8 Iteration 290: running_corrects: 249016 running loss = 109619.826538
+train Loss: 0.3679 TP%: 0.3494 FP%: 0.3232 Acc: 0.8356 F1: 0.4609
+ 
+Epoch 8 Iteration 0: running_corrects: 903 running loss = 311.585724
+Epoch 8 Iteration 10: running_corrects: 9891 running loss = 3381.567963
+Epoch 8 Iteration 20: running_corrects: 18910 running loss = 6445.370514
+dev Loss: 0.2995 TP%: 0.3304 FP%: 0.5379 Acc: 0.8796 F1: 0.3853
+ 
+Epoch 9/50
+--------------------
+Epoch 9 Iteration 0: running_corrects: 876 running loss = 347.977112
+Epoch 9 Iteration 10: running_corrects: 9419 running loss = 4156.822418
+Epoch 9 Iteration 20: running_corrects: 18000 running loss = 7887.200867
+Epoch 9 Iteration 30: running_corrects: 26620 running loss = 11515.638428
+Epoch 9 Iteration 40: running_corrects: 35266 running loss = 15167.244629
+Epoch 9 Iteration 50: running_corrects: 43897 running loss = 18837.297577
+Epoch 9 Iteration 60: running_corrects: 52494 running loss = 22465.351105
+Epoch 9 Iteration 70: running_corrects: 61032 running loss = 26223.739777
+Epoch 9 Iteration 80: running_corrects: 69651 running loss = 29802.663879
+Epoch 9 Iteration 90: running_corrects: 78234 running loss = 33548.978027
+Epoch 9 Iteration 100: running_corrects: 86813 running loss = 37221.191559
+Epoch 9 Iteration 110: running_corrects: 95403 running loss = 40918.738373
+Epoch 9 Iteration 120: running_corrects: 103982 running loss = 44629.275055
+Epoch 9 Iteration 130: running_corrects: 112491 running loss = 48436.676361
+Epoch 9 Iteration 140: running_corrects: 121051 running loss = 52206.582397
+Epoch 9 Iteration 150: running_corrects: 129581 running loss = 55988.872742
+Epoch 9 Iteration 160: running_corrects: 138099 running loss = 59856.214874
+Epoch 9 Iteration 170: running_corrects: 146612 running loss = 63638.308899
+Epoch 9 Iteration 180: running_corrects: 155159 running loss = 67417.760376
+Epoch 9 Iteration 190: running_corrects: 163767 running loss = 71100.503204
+Epoch 9 Iteration 200: running_corrects: 172335 running loss = 74816.055054
+Epoch 9 Iteration 210: running_corrects: 180914 running loss = 78554.957764
+Epoch 9 Iteration 220: running_corrects: 189487 running loss = 82275.738312
+Epoch 9 Iteration 230: running_corrects: 198064 running loss = 86044.425140
+Epoch 9 Iteration 240: running_corrects: 206649 running loss = 89779.739075
+Epoch 9 Iteration 250: running_corrects: 215260 running loss = 93453.082184
+Epoch 9 Iteration 260: running_corrects: 223857 running loss = 97112.272034
+Epoch 9 Iteration 270: running_corrects: 232400 running loss = 100859.422760
+Epoch 9 Iteration 280: running_corrects: 240975 running loss = 104588.699280
+Epoch 9 Iteration 290: running_corrects: 249541 running loss = 108311.486633
+train Loss: 0.3635 TP%: 0.3630 FP%: 0.3202 Acc: 0.8375 F1: 0.4733
+ 
+Epoch 9 Iteration 0: running_corrects: 908 running loss = 296.037842
+Epoch 9 Iteration 10: running_corrects: 9926 running loss = 3244.835907
+Epoch 9 Iteration 20: running_corrects: 19006 running loss = 6167.233582
+dev Loss: 0.2869 TP%: 0.2801 FP%: 0.5142 Acc: 0.8839 F1: 0.3553
+ 
+Epoch 10/50
+--------------------
+Epoch 10 Iteration 0: running_corrects: 871 running loss = 341.463928
+Epoch 10 Iteration 10: running_corrects: 9470 running loss = 4000.189453
+Epoch 10 Iteration 20: running_corrects: 17999 running loss = 7729.208496
+Epoch 10 Iteration 30: running_corrects: 26612 running loss = 11387.970276
+Epoch 10 Iteration 40: running_corrects: 35239 running loss = 14970.919434
+Epoch 10 Iteration 50: running_corrects: 43891 running loss = 18559.652161
+Epoch 10 Iteration 60: running_corrects: 52558 running loss = 22173.827667
+Epoch 10 Iteration 70: running_corrects: 61213 running loss = 25766.028137
+Epoch 10 Iteration 80: running_corrects: 69834 running loss = 29465.167755
+Epoch 10 Iteration 90: running_corrects: 78433 running loss = 33129.405426
+Epoch 10 Iteration 100: running_corrects: 87074 running loss = 36759.073029
+Epoch 10 Iteration 110: running_corrects: 95705 running loss = 40396.519745
+Epoch 10 Iteration 120: running_corrects: 104365 running loss = 43990.518066
+Epoch 10 Iteration 130: running_corrects: 112950 running loss = 47674.805237
+Epoch 10 Iteration 140: running_corrects: 121596 running loss = 51281.011627
+Epoch 10 Iteration 150: running_corrects: 130173 running loss = 54970.294830
+Epoch 10 Iteration 160: running_corrects: 138846 running loss = 58565.501190
+Epoch 10 Iteration 170: running_corrects: 147453 running loss = 62231.501862
+Epoch 10 Iteration 180: running_corrects: 156099 running loss = 65857.476105
+Epoch 10 Iteration 190: running_corrects: 164729 running loss = 69455.157532
+Epoch 10 Iteration 200: running_corrects: 173300 running loss = 73148.972382
+Epoch 10 Iteration 210: running_corrects: 181888 running loss = 76838.862335
+Epoch 10 Iteration 220: running_corrects: 190433 running loss = 80552.274872
+Epoch 10 Iteration 230: running_corrects: 198939 running loss = 84359.962341
+Epoch 10 Iteration 240: running_corrects: 207560 running loss = 88053.099762
+Epoch 10 Iteration 250: running_corrects: 216112 running loss = 91772.376740
+Epoch 10 Iteration 260: running_corrects: 224619 running loss = 95550.528107
+Epoch 10 Iteration 270: running_corrects: 233204 running loss = 99290.601318
+Epoch 10 Iteration 280: running_corrects: 241836 running loss = 102916.744476
+Epoch 10 Iteration 290: running_corrects: 250443 running loss = 106581.228668
+train Loss: 0.3577 TP%: 0.3801 FP%: 0.3136 Acc: 0.8404 F1: 0.4893
+ 
+Epoch 10 Iteration 0: running_corrects: 902 running loss = 312.267914
+Epoch 10 Iteration 10: running_corrects: 9885 running loss = 3393.284363
+Epoch 10 Iteration 20: running_corrects: 18862 running loss = 6468.961243
+dev Loss: 0.3011 TP%: 0.3735 FP%: 0.5477 Acc: 0.8768 F1: 0.4091
+ 
+Epoch 11/50
+--------------------
+Epoch 11 Iteration 0: running_corrects: 874 running loss = 351.766418
+^CTraceback (most recent call last):
+  File "train_cat2.py", line 197, in <module>
+    for i, (sample,label) in enumerate(dataloaders[phase]):
+  File "/home/cxing95/anaconda3/lib/python3.6/site-packages/torch/utils/data/dataloader.py", line 314, in __next__
+    batch = self.collate_fn([self.dataset[i] for i in indices])
+  File "/home/cxing95/anaconda3/lib/python3.6/site-packages/torch/utils/data/dataloader.py", line 314, in <listcomp>
+    batch = self.collate_fn([self.dataset[i] for i in indices])
+  File "train_cat2.py", line 82, in __getitem__
+    bert_emb = torch.as_tensor(bert.encode([q, para]))
+  File "/home/cxing95/anaconda3/lib/python3.6/site-packages/bert_serving/client/__init__.py", line 206, in arg_wrapper
+    return func(self, *args, **kwargs)
+  File "/home/cxing95/anaconda3/lib/python3.6/site-packages/bert_serving/client/__init__.py", line 291, in encode
+    r = self._recv_ndarray(req_id)
+  File "/home/cxing95/anaconda3/lib/python3.6/site-packages/bert_serving/client/__init__.py", line 170, in _recv_ndarray
+    request_id, response = self._recv(wait_for_req_id)
+  File "/home/cxing95/anaconda3/lib/python3.6/site-packages/bert_serving/client/__init__.py", line 153, in _recv
+    response = self.receiver.recv_multipart()
+  File "/home/cxing95/anaconda3/lib/python3.6/site-packages/zmq/sugar/socket.py", line 467, in recv_multipart
+    parts = [self.recv(flags, copy=copy, track=track)]
+  File "zmq/backend/cython/socket.pyx", line 788, in zmq.backend.cython.socket.Socket.recv
+  File "zmq/backend/cython/socket.pyx", line 824, in zmq.backend.cython.socket.Socket.recv
+  File "zmq/backend/cython/socket.pyx", line 186, in zmq.backend.cython.socket._recv_copy
+  File "zmq/backend/cython/checkrc.pxd", line 12, in zmq.backend.cython.checkrc._check_rc
+KeyboardInterrupt
+cxing95@speech10:~/4080/RL-for-QA$ exit
+exit
+
+Script done on Tue 09 Apr 2019 07:26:25 PM EDT

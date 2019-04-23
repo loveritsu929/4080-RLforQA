@@ -1,0 +1,105 @@
+Script started on Fri 25 Jan 2019 08:17:29 PM EST
+[01;32mcxing95@speech10[00m:[01;34m~/4080/RL-for-QA[00m$ python trainExp.py
+Ready for trainning
+Start Epoch 0
+Epoch 0 Iteration 0: running_corrects: 235 running loss = 161.8761444091797
+Epoch 0 Iteration 200: running_corrects: 48404 running loss = 19231.874557495117
+Epoch 0 Iteration 400: running_corrects: 96642 running loss = 38232.872802734375
+Epoch 0 Iteration 600: running_corrects: 144711 running loss = 57402.87113189697
+Epoch 0 Iteration 800: running_corrects: 192972 running loss = 76380.86933135986
+Epoch 0 Iteration 1000: running_corrects: 241300 running loss = 95291.86747741699
+Epoch 0 Iteration 1200: running_corrects: 289517 running loss = 114313.86569976807
+Epoch 0 Iteration 1400: running_corrects: 337724 running loss = 133345.8639755249
+Epoch 0 Iteration 1600: running_corrects: 385941 running loss = 152367.86233520508
+Epoch 0 Iteration 1800: running_corrects: 434202 running loss = 171345.86059570312
+Epoch 0 Iteration 2000: running_corrects: 482458 running loss = 190328.8588027954
+Epoch 0 Iteration 2200: running_corrects: 530690 running loss = 209335.85710906982
+Epoch 0 Iteration 2400: running_corrects: 578939 running loss = 228325.85536956787
+Epoch 0 Iteration 2600: running_corrects: 627142 running loss = 247361.8536682129
+Epoch 0 Iteration 2800: running_corrects: 675366 running loss = 266376.8518218994
+Epoch 0 Iteration 3000: running_corrects: 723552 running loss = 285429.85012054443
+Epoch 0 Iteration 3200: running_corrects: 771761 running loss = 304459.84840393066
+Epoch 0 Iteration 3400: running_corrects: 820006 running loss = 323453.8466567993
+Epoch 0 Iteration 3600: running_corrects: 868155 running loss = 342543.8450241089
+Epoch 0 Iteration 3800: running_corrects: 916402 running loss = 361535.8432006836
+Epoch 0 Iteration 4000: running_corrects: 964632 running loss = 380544.8414840698
+Epoch 0 Iteration 4200: running_corrects: 1012789 running loss = 399626.8398361206
+Epoch 0 Iteration 4400: running_corrects: 1061025 running loss = 418629.83807373047
+Epoch 0 Iteration 4600: running_corrects: 1109216 running loss = 437677.8363571167
+Epoch 0 Iteration 4800: running_corrects: 1157336 running loss = 456796.8347167969
+Epoch 0 Iteration 5000: running_corrects: 1205610 running loss = 475761.83296203613
+Epoch 0 Iteration 5200: running_corrects: 1253761 running loss = 494849.8313217163
+Epoch 0 Iteration 5400: running_corrects: 1302016 running loss = 513833.82956695557
+Epoch 0 Iteration 5600: running_corrects: 1350260 running loss = 532828.8278274536
+Epoch 0 Iteration 5800: running_corrects: 1398419 running loss = 551908.8261871338
+Epoch 0 Iteration 6000: running_corrects: 1446646 running loss = 570920.8244552612
+Epoch 0 Iteration 6200: running_corrects: 1494832 running loss = 589973.822883606
+Epoch 0 Iteration 6400: running_corrects: 1543020 running loss = 609024.8213043213
+Epoch 0 Iteration 6600: running_corrects: 1591374 running loss = 627909.8194961548
+Epoch 0 Iteration 6800: running_corrects: 1639515 running loss = 647007.817817688
+Epoch 0 Iteration 7000: running_corrects: 1687767 running loss = 665994.8160629272
+Epoch 0 Iteration 7200: running_corrects: 1736010 running loss = 684990.8143005371
+Epoch 0 Iteration 7400: running_corrects: 1784206 running loss = 704033.8125915527
+Epoch 0 Iteration 7600: running_corrects: 1832448 running loss = 723030.8108139038
+Epoch 0 Iteration 7800: running_corrects: 1880704 running loss = 742013.8090820312
+Epoch 0 Iteration 8000: running_corrects: 1928898 running loss = 761058.8073806763
+Epoch 0 Iteration 8200: running_corrects: 1977086 running loss = 780109.8056411743
+Epoch 0 Iteration 8400: running_corrects: 2025254 running loss = 799180.8039245605
+Epoch 0 Iteration 8600: running_corrects: 2073548 running loss = 818125.8020706177
+Epoch 0 Iteration 8800: running_corrects: 2121689 running loss = 837223.8003845215
+Epoch 0 Iteration 9000: running_corrects: 2169968 running loss = 856183.7986602783
+Epoch 0 Iteration 9200: running_corrects: 2218049 running loss = 875341.797088623
+Epoch 0 Iteration 9400: running_corrects: 2266274 running loss = 894355.7953567505
+Epoch 0 Iteration 9600: running_corrects: 2314420 running loss = 913448.7937240601
+Epoch 0 Iteration 9800: running_corrects: 2362660 running loss = 932447.791923523
+Epoch 0 Iteration 10000: running_corrects: 2411019 running loss = 951327.7901153564
+Epoch 0 Iteration 10200: running_corrects: 2459128 running loss = 970457.7884292603
+Epoch 0 Iteration 10400: running_corrects: 2507364 running loss = 989460.7867355347
+^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[B^[[B^[[B^CTraceback (most recent call last):
+  File "trainExp.py", line 43, in <module>
+    q_t = torch.as_tensor(bert.encode(list(q)))
+  File "/home/cxing95/anaconda3/lib/python3.6/site-packages/bert_serving/client/__init__.py", line 177, in arg_wrapper
+    return func(self, *args, **kwargs)
+  File "/home/cxing95/anaconda3/lib/python3.6/site-packages/bert_serving/client/__init__.py", line 256, in encode
+    return self._recv_ndarray().content if blocking else None
+  File "/home/cxing95/anaconda3/lib/python3.6/site-packages/bert_serving/client/__init__.py", line 142, in _recv_ndarray
+    request_id, response = self._recv()
+  File "/home/cxing95/anaconda3/lib/python3.6/site-packages/bert_serving/client/__init__.py", line 136, in _recv
+    response = self.receiver.recv_multipart()
+  File "/home/cxing95/anaconda3/lib/python3.6/site-packages/zmq/sugar/socket.py", line 467, in recv_multipart
+    parts = [self.recv(flags, copy=copy, track=track)]
+  File "zmq/backend/cython/socket.pyx", line 788, in zmq.backend.cython.socket.Socket.recv
+  File "zmq/backend/cython/socket.pyx", line 824, in zmq.backend.cython.socket.Socket.recv
+  File "zmq/backend/cython/socket.pyx", line 186, in zmq.backend.cython.socket._recv_copy
+  File "zmq/backend/cython/checkrc.pxd", line 12, in zmq.backend.cython.checkrc._check_rc
+KeyboardInterrupt
+[01;32mcxing95@speech10[00m:[01;34m~/4080/RL-for-QA[00m$ model
+No command 'model' found, did you mean:
+ Command 'mdel' from package 'mtools' (main)
+ Command 'mode2' from package 'lirc' (universe)
+model: command not found
+[01;32mcxing95@speech10[00m:[01;34m~/4080/RL-for-QA[00m$ modelpython trainExp.pygit pull origin masterbert-serving-start -model_dir ../uncased_L-24__H-1024_A-16/ -max_batch_size 16 -max_seq_len 50 -num_worker 1[Aexit[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cgit push origin mastercommit -m 'deprecate paraDataset, use senttDataset next'[A[01;32mcxing95@speech10[00m:[01;34m~/4080/RL-for-QA[00m$ [C[C[C[Cadd *[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cwatch -n 1 nvidia-smibert-serving-start -model_dir ../uncased_L-24__H-1024_A-16/ -max_batch_size 16 -num_worker 1[A[23Pgit push origin master
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ccommit -m 'dataset for pure DL approach'add *[Knvidia-smi -l 1sudo apt-get upgrade[1Pdated[C[C[C[C[C[C[C[C[C[C[C[C[Ckg -i teamviewer_14.1.9025_amd64.deb [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Chtop[K[2Pbgfgjobs -lps[Kjobshtoppython test0.py exit[Khtopexitpythonbert-serving-start -model_dir ./uncased_L-24_HH-1024_A-16/ -max_batch_size 16 -num_worker 1[A[10Punzip uncased_L-24_H-1024_A-16.zip 
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cdocker -v[Kunzip uncased_L-24_H-1024_A-16.zip bert-serving-start -model_dir ./uncased_L-24_HH-1024_A-16/ -max_batch_size 16 -num_worker 1[Apython[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[2Pexithtopexitpython test0.py htop[Kjobs[2Ppsjobs -lfg[Kbghtopsudo dpkg -i teamviewer_14.1.9025_amd64.deb t-get update[Ka[C[C[C[C[C[C[C[C[C[C[C[C[Cgrade[5Pnvidia-smi -l 1[6Pgit add *commit -m 'dataset for pure DL approach'[22Ppush origin masterbert-serving-start -model_dir ../uncased_L-24__H-1024_A-16/ -max_batch_size 16 -num_worker 1[A[24Pwatch -n 1 nvidia-smi
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[12Pgit add *commit -m 'deprecate paraDataset, use senttDataset next'[A[01;32mcxing95@speech10[00m:[01;34m~/4080/RL-for-QA[00m$ [C[C[C[C[23Ppush origin master
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cexit[Kbert-serving-start -model_dir ../uncased_L-24__H-1024_A-16/ -max_batch_size 16 -max_seq_len 50 -num_worker 1[A[23Pgit pull origin master
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[4Ppython trainExp.pymodel[K[Kpython
+Python 3.6.7 |Anaconda custom (64-bit)| (default, Oct 23 2018, 19:16:44) 
+[GCC 7.3.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> model
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'model' is not defined
+>>> 
+[1]+  Stopped                 python
+[01;32mcxing95@speech10[00m:[01;34m~/4080/RL-for-QA[00m$ [K[01;32mcxing95@speech10[00m:[01;34m~/4080/RL-for-QA[00m$ python[1Pmodelpython trainExp.pygit pull origin masterbert-serving-start -model_dir ../uncased_L-24_H-1024_A-16/ -max_batch_size 16 -max_seq_len 50 -num_worker 1[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cexit[Kbert-serving-start -model_dir ../uncased_L-24_H-1024_A-16/ -max_batch_size 16 -max_seq_len 50 -num_worker 1[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cgit pull origin master[K[4Ppython trainExp.pymodel[Kpython[Kexit
+exit
+There are stopped jobs.
+[01;32mcxing95@speech10[00m:[01;34m~/4080/RL-for-QA[00m$ exit
+exit
+
+Script done on Sat 26 Jan 2019 08:15:35 AM EST

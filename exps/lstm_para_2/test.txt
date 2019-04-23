@@ -1,0 +1,107 @@
+threshold = 0.1
+To test:  ./exps/lstm_para_2/ep5_loss=134393.3278.mdl
+Testing
+####################
+/home/cxing95/4080/RL-for-QA/testExp.py:64: UserWarning: Implicit dimension choice for softmax has been deprecated. Change the call to include dim=X as an argument.
+  out = nn.functional.softmax(out[:,1]) #scores for label '1'
+Testing Iteration 0: true_pos = 223 true_pos_acc = 1.0
+Testing Iteration 10: true_pos = 2568 true_pos_acc = 1.0
+Testing Iteration 20: true_pos = 4883 true_pos_acc = 1.0
+Testing Iteration 30: true_pos = 7168 true_pos_acc = 1.0
+Traceback (most recent call last):
+
+threshold = 0.0
+o test:  ./exps/lstm_para_2/ep5_loss=134393.3278.mdl
+Testing
+####################
+/home/cxing95/4080/RL-for-QA/testExp.py:64: UserWarning: Implicit dimension choice for softmax has been deprecated. Change the call to include dim=X as an argument.
+  out = nn.functional.softmax(out[:,1]) #scores for label '1'
+Testing Iteration 0: true_pos = 0 true_pos_acc = 0.0
+Testing Iteration 10: true_pos = 0 true_pos_acc = 0.0
+Testing Iteration 20: true_pos = 0 true_pos_acc = 0.0
+Testing Iteration 30: true_pos = 0 true_pos_acc = 0.0
+
+threshold = 0.05
+To test:  ./exps/lstm_para_2/ep5_loss=134393.3278.mdl
+Testing
+####################
+/home/cxing95/4080/RL-for-QA/testExp.py:64: UserWarning: Implicit dimension choice for softmax has been deprecated. Change the call to include dim=X as an argument.
+  out = nn.functional.softmax(out[:,1]) #scores for label '1'
+Testing Iteration 0: true_pos = 223 true_pos_acc = 1.0
+Testing Iteration 10: true_pos = 2568 true_pos_acc = 1.0
+Testing Iteration 20: true_pos = 4883 true_pos_acc = 1.0
+Traceback (most recent call last):
+
+
+threshold = 0.001
+To test:  ./exps/lstm_para_2/ep5_loss=134393.3278.mdl
+Testing
+####################
+/home/cxing95/4080/RL-for-QA/testExp.py:63: UserWarning: Implicit dimension choice for softmax has been deprecated. Change the call to include dim=X as an argument.
+  #TODO
+Testing Iteration 0: true_pos = 51 true_pos_acc = 0.22869955156950672
+Testing Iteration 10: true_pos = 940 true_pos_acc = 0.3660436137071651
+Testing Iteration 20: true_pos = 2023 true_pos_acc = 0.4142944910915421
+Testing Iteration 30: true_pos = 3142 true_pos_acc = 0.43833705357142855
+Finish testing: acc = 0.6364
+####################
+Testing
+####################
+/home/cxing95/4080/RL-for-QA/testExp.py:64: UserWarning: Implicit dimension choice for softmax has been deprecated. Change the call to include dim=X as an argument.
+  out = nn.functional.softmax(out[:,1]) #scores for label '1'
+Iter 0: true_pos = 51 TP_acc = 0.2287 FP% = 0.8396
+Iter 10: true_pos = 940 TP_acc = 0.3660 FP% = 0.8388
+Iter 20: true_pos = 2023 TP_acc = 0.4143 FP% = 0.8541
+Iter 30: true_pos = 3142 TP_acc = 0.4383 FP% = 0.8567
+Finish testing: acc = 0.6364
+####################
+
+
+threshold = 0.002
+To test:  ./exps/lstm_para_2/ep5_loss=134393.3278.mdl
+Testing
+####################
+/home/cxing95/4080/RL-for-QA/testExp.py:63: UserWarning: Implicit dimension choice for softmax has been deprecated. Change the call to include dim=X as an argument.
+  #TODO
+Testing Iteration 0: true_pos = 223 true_pos_acc = 1.0
+Testing Iteration 10: true_pos = 2568 true_pos_acc = 1.0
+Testing Iteration 20: true_pos = 4859 true_pos_acc = 0.9950849887364325
+Testing Iteration 30: true_pos = 7144 true_pos_acc = 0.9966517857142857
+Finish testing: acc = 0.1142
+####################
+
+threshold = 0.0015
+To test:  ./exps/lstm_para_2/ep5_loss=134393.3278.mdl
+Testing
+####################
+/home/cxing95/4080/RL-for-QA/testExp.py:63: UserWarning: Implicit dimension choice for softmax has been deprecated. Change the call to include dim=X as an argument.
+  #TODO
+Testing Iteration 0: true_pos = 222 true_pos_acc = 0.9955156950672646
+Testing Iteration 10: true_pos = 2392 true_pos_acc = 0.9314641744548287
+Testing Iteration 20: true_pos = 4263 true_pos_acc = 0.8730288756911735
+Testing Iteration 30: true_pos = 6376 true_pos_acc = 0.8895089285714286
+Finish testing: acc = 0.2386
+####################
+Testing
+####################
+/home/cxing95/4080/RL-for-QA/testExp.py:64: UserWarning: Implicit dimension choice for softmax has been deprecated. Change the call to include dim=X as an argument.
+  out = nn.functional.softmax(out[:,1]) #scores for label '1'
+Iter 0: true_pos = 222 TP_acc = 0.9955 FP% = 0.8912
+Iter 10: true_pos = 2392 TP_acc = 0.9315 FP% = 0.8814
+Iter 20: true_pos = 4263 TP_acc = 0.8730 FP% = 0.8816
+Iter 30: true_pos = 6376 TP_acc = 0.8895 FP% = 0.8830
+Finish testing: acc = 0.2386
+####################
+
+threshold = 0.0005
+To test:  ./exps/lstm_para_2/ep5_loss=134393.3278.mdl
+Testing
+####################
+/home/cxing95/4080/RL-for-QA/testExp.py:63: UserWarning: Implicit dimension choice for softmax has been deprecated. Change the call to include dim=X as an argument.
+  #TODO
+Testing Iteration 0: true_pos = 5 true_pos_acc = 0.02242152466367713
+Testing Iteration 10: true_pos = 63 true_pos_acc = 0.02453271028037383
+Testing Iteration 20: true_pos = 212 true_pos_acc = 0.0434159328281794
+Testing Iteration 30: true_pos = 346 true_pos_acc = 0.04827008928571429
+Finish testing: acc = 0.8545
+####################
